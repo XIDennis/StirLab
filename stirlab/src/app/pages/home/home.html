@@ -81,13 +81,17 @@
   </div>
 
   <section class="cocktail-grid" aria-label="Cocktail results">
-    @for (cocktail of filteredCocktails(); track cocktail.id) {
+    @for (match of filteredCocktails(); track match.cocktail.id) {
       <app-cocktail-card
-        [name]="cocktail.name"
-        [category]="cocktail.category"
-        [image]="cocktail.image"
-        [description]="cocktail.description"
-        [id]="cocktail.id"
+        [name]="match.cocktail.name"
+        [category]="match.cocktail.category"
+        [image]="match.cocktail.image"
+        [description]="match.cocktail.description"
+        [id]="match.cocktail.id"
+        [missingIngredients]="
+          availableIngredientKeys().length ? match.missingIngredients : undefined
+        "
+        [isReady]="match.isReady"
       />
     } @empty {
       <div class="empty-state">

@@ -13,4 +13,6 @@ export class CocktailCard {
   @Input() category: string = '';
   @Input() image: string = '';
   @Input() description: string = '';
+  @Input() missingIngredients: number | undefined;
+  @Input() isReady = false;
 }

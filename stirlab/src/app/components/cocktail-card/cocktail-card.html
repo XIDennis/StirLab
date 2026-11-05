@@ -1,4 +1,4 @@
-<article class="cocktail-card">
+<article class="cocktail-card" [class.ready-to-make]="isReady">
   <img [src]="image" [alt]="name" loading="lazy" />
 
   <div class="card-content">
@@ -8,10 +8,18 @@
 
     <p>{{ description }}</p>
 
-    <a
-      [routerLink]="['/cocktails', id]"
-      class="recipe-link"
-    >
+    @if (missingIngredients !== undefined) {
+      <p class="ingredient-status" [class.ready-status]="isReady">
+        @if (isReady) {
+          Ready to make
+        } @else {
+          Missing {{ missingIngredients }}
+          {{ missingIngredients === 1 ? 'ingredient' : 'ingredients' }}
+        }
+      </p>
+    }
+
+    <a [routerLink]="['/cocktails', id]" class="recipe-link">
       View recipe
     </a>
   </div>

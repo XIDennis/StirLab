@@ -3,6 +3,12 @@ import { CocktailCard } from '../../components/cocktail-card/cocktail-card';
 import { Cocktail } from '../../models/cocktail';
 import { CocktailService } from '../../services/cocktail';
 
+interface CocktailMatch {
+  cocktail: Cocktail;
+  missingIngredients: number;
+  isReady: boolean;
+}
+
 @Component({
   selector: 'app-home',
   imports: [CocktailCard],
@@ -47,19 +53,36 @@ export class Home {
     const search = this.searchTerm().toLowerCase().trim();
     const category = this.selectedCategory();
     const availableIngredients = new Set(this.availableIngredientKeys());
+    const hasIngredientFilter = availableIngredients.size > 0;
 
-    return this.cocktails().filter((cocktail) => {
-      const matchesSearch =
-        cocktail.name.toLowerCase().includes(search) ||
-        cocktail.description.toLowerCase().includes(search);
+    return this.cocktails()
+      .map((cocktail): CocktailMatch => {
+        const missingIngredients = cocktail.ingredients.filter(
+          (item) => !availableIngredients.has(item.ingredient.key),
+        ).length;
 
-      const matchesCategory = category === 'All' || cocktail.category === category;
-      const matchesIngredients =
-        availableIngredients.size === 0 ||
-        cocktail.ingredients.every((item) => availableIngredients.has(item.ingredient.key));
+        return {
+          cocktail,
+          missingIngredients,
+          isReady: hasIngredientFilter && missingIngredients === 0,
+        };
+      })
+      .filter(({ cocktail, missingIngredients }) => {
+        const matchesSearch =
+          cocktail.name.toLowerCase().includes(search) ||
+          cocktail.description.toLowerCase().includes(search);
 
-      return matchesSearch && matchesCategory && matchesIngredients;
-    });
+        const matchesCategory = category === 'All' || cocktail.category === category;
+        const matchesIngredients =
+          !hasIngredientFilter ||
+          (cocktail.ingredients.length > 0 &&
+            missingIngredients < cocktail.ingredients.length);
+
+        return matchesSearch && matchesCategory && matchesIngredients;
+      })
+      .sort((first, second) =>
+        hasIngredientFilter ? first.missingIngredients - second.missingIngredients : 0,
+      );
   });
 
   constructor() {
