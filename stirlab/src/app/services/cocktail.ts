@@ -25,11 +25,13 @@ interface CocktailDbDetails extends CocktailDbSummary {
 })
 export class CocktailService {
   private readonly apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1';
+  private readonly availableIngredientsStorageKey = 'stirlab.available-ingredients';
   private readonly http = inject(HttpClient);
   private loadingPromise: Promise<void> | undefined;
 
   readonly cocktails = signal<Cocktail[]>([]);
   readonly ingredients = signal<Ingredient[]>([]);
+  readonly availableIngredientKeys = signal<string[]>(this.readAvailableIngredients());
   readonly isLoading = signal(false);
   readonly error = signal('');
 
@@ -49,6 +51,26 @@ export class CocktailService {
   async getCocktailById(id: string): Promise<Cocktail | undefined> {
     await this.loadLibrary();
     return this.cocktails().find((cocktail) => cocktail.id === id);
+  }
+
+  addAvailableIngredient(key: string): void {
+    if (!key || this.availableIngredientKeys().includes(key)) {
+      return;
+    }
+
+    this.availableIngredientKeys.update((ingredients) => {
+      const updatedIngredients = [...ingredients, key];
+      this.persistAvailableIngredients(updatedIngredients);
+      return updatedIngredients;
+    });
+  }
+
+  removeAvailableIngredient(key: string): void {
+    this.availableIngredientKeys.update((ingredients) => {
+      const updatedIngredients = ingredients.filter((ingredient) => ingredient !== key);
+      this.persistAvailableIngredients(updatedIngredients);
+      return updatedIngredients;
+    });
   }
 
   private async fetchLibrary(): Promise<void> {
@@ -141,4 +163,31 @@ export class CocktailService {
       .replace(/\s+/g, '-');
   }
 
+  private readAvailableIngredients(): string[] {
+    try {
+      const storedIngredients = localStorage.getItem(this.availableIngredientsStorageKey);
+      if (!storedIngredients) {
+        return [];
+      }
+
+      const parsed: unknown = JSON.parse(storedIngredients);
+      return Array.isArray(parsed) && parsed.every((ingredient) => typeof ingredient === 'string')
+        ? parsed
+        : [];
+    } catch (error) {
+      console.error('Unable to read saved ingredients.', error);
+      return [];
+    }
+  }
+
+  private persistAvailableIngredients(ingredients: string[]): void {
+    try {
+      localStorage.setItem(
+        this.availableIngredientsStorageKey,
+        JSON.stringify(ingredients),
+      );
+    } catch (error) {
+      console.error('Unable to save selected ingredients.', error);
+    }
+  }
 }

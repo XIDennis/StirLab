@@ -30,7 +30,7 @@ export class Home {
 
   ingredientSearch = signal('');
 
-  availableIngredientKeys = signal<string[]>([]);
+  availableIngredientKeys = this.cocktailService.availableIngredientKeys;
 
   categories = computed(() => [
     'All',
@@ -94,7 +94,7 @@ export class Home {
       return;
     }
 
-    this.availableIngredientKeys.update((ingredients) => [...ingredients, key]);
+    this.cocktailService.addAvailableIngredient(key);
     this.ingredientSearch.set('');
   }
 
@@ -106,9 +106,7 @@ export class Home {
   }
 
   removeIngredient(key: string): void {
-    this.availableIngredientKeys.update((ingredients) =>
-      ingredients.filter((ingredient) => ingredient !== key),
-    );
+    this.cocktailService.removeAvailableIngredient(key);
   }
 
   ingredientName(key: string): string {
