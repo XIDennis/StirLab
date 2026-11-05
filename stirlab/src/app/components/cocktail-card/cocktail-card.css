@@ -17,6 +17,24 @@
   box-shadow: 0 0.5rem 1.5rem rgb(74 222 128 / 15%), 0 0 0 1px #4ade80;
 }
 
+.cocktail-card.unavailable {
+  border-color: #525252;
+  background: #202020;
+  color: #737373;
+  filter: grayscale(0.7);
+  opacity: 0.72;
+}
+
+.cocktail-card.unavailable img {
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+
+.cocktail-card.unavailable .category,
+.cocktail-card.unavailable .ingredient-status {
+  color: #a3a3a3;
+}
+
 .cocktail-card img {
   width: 100%;
   height: 13.75rem;

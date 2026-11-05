@@ -1,4 +1,8 @@
-<article class="cocktail-card" [class.ready-to-make]="isReady">
+<article
+  class="cocktail-card"
+  [class.ready-to-make]="isReady"
+  [class.unavailable]="isUnavailable"
+>
   <img [src]="image" [alt]="name" loading="lazy" />
 
   <div class="card-content">
@@ -12,6 +16,8 @@
       <p class="ingredient-status" [class.ready-status]="isReady">
         @if (isReady) {
           Ready to make
+        } @else if (isUnavailable) {
+          No ingredients available
         } @else {
           Missing {{ missingIngredients }}
           {{ missingIngredients === 1 ? 'ingredient' : 'ingredients' }}

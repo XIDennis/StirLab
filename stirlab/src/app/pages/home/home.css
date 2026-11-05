@@ -151,6 +151,22 @@
   margin-top: 1rem;
 }
 
+.unavailable-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-top: 1rem;
+  color: #d4d4d4;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.unavailable-toggle input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #d4a373;
+}
+
 .ingredient-chip {
   padding: 0.5rem 0.75rem;
   border: 1px solid #d4a373;

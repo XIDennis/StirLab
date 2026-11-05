@@ -61,6 +61,15 @@
           }
         </div>
       }
+
+      <label class="unavailable-toggle">
+        <input
+          type="checkbox"
+          [checked]="showUnavailableCocktails()"
+          (change)="setShowUnavailable($event)"
+        />
+        <span>Show unavailable cocktails</span>
+      </label>
     </section>
 
     <section class="category-filter" aria-labelledby="category-label">
@@ -92,6 +101,7 @@
           availableIngredientKeys().length ? match.missingIngredients : undefined
         "
         [isReady]="match.isReady"
+        [isUnavailable]="match.isUnavailable"
       />
     } @empty {
       <div class="empty-state">

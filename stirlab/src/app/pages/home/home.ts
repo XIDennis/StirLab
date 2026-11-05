@@ -5,8 +5,10 @@ import { CocktailService } from '../../services/cocktail';
 
 interface CocktailMatch {
   cocktail: Cocktail;
+  availableIngredients: number;
   missingIngredients: number;
   isReady: boolean;
+  isUnavailable: boolean;
 }
 
 @Component({
@@ -31,6 +33,8 @@ export class Home {
   ingredientSearch = signal('');
 
   availableIngredientKeys = this.cocktailService.availableIngredientKeys;
+
+  showUnavailableCocktails = signal(false);
 
   categories = computed(() => [
     'All',
@@ -57,14 +61,19 @@ export class Home {
 
     return this.cocktails()
       .map((cocktail): CocktailMatch => {
+        const availableIngredientCount = cocktail.ingredients.filter((item) =>
+          availableIngredients.has(item.ingredient.key),
+        ).length;
         const missingIngredients = cocktail.ingredients.filter(
           (item) => !availableIngredients.has(item.ingredient.key),
         ).length;
 
         return {
           cocktail,
+          availableIngredients: availableIngredientCount,
           missingIngredients,
           isReady: hasIngredientFilter && missingIngredients === 0,
+          isUnavailable: hasIngredientFilter && availableIngredientCount === 0,
         };
       })
       .filter(({ cocktail, missingIngredients }) => {
@@ -76,13 +85,21 @@ export class Home {
         const matchesIngredients =
           !hasIngredientFilter ||
           (cocktail.ingredients.length > 0 &&
-            missingIngredients < cocktail.ingredients.length);
+            (missingIngredients < cocktail.ingredients.length || this.showUnavailableCocktails()));
 
         return matchesSearch && matchesCategory && matchesIngredients;
       })
-      .sort((first, second) =>
-        hasIngredientFilter ? first.missingIngredients - second.missingIngredients : 0,
-      );
+      .sort((first, second) => {
+        if (!hasIngredientFilter) return 0;
+
+        // Push unavailable cocktails (0 matching ingredients) to the very bottom
+        if (first.isUnavailable !== second.isUnavailable) {
+          return first.isUnavailable ? 1 : -1;
+        }
+
+        // Sort the remaining cocktails by least missing ingredients first
+        return first.missingIngredients - second.missingIngredients;
+      });
   });
 
   constructor() {
@@ -103,6 +120,10 @@ export class Home {
     if (ingredient) {
       this.addIngredient(ingredient.key);
     }
+  }
+
+  setShowUnavailable(event: Event): void {
+    this.showUnavailableCocktails.set((event.target as HTMLInputElement).checked);
   }
 
   removeIngredient(key: string): void {

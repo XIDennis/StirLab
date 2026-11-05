@@ -15,4 +15,5 @@ export class CocktailCard {
   @Input() description: string = '';
   @Input() missingIngredients: number | undefined;
   @Input() isReady = false;
+  @Input() isUnavailable = false;
 }
