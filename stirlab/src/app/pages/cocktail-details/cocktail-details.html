@@ -1,0 +1,56 @@
+<main class="details-page">
+  <div class="details-container">
+    <a routerLink="/" class="back-link"> Back to cocktails </a>
+
+    @if (cocktail; as drink) {
+      <div class="details-grid">
+        <div class="details-image">
+          <img [src]="drink.image" [alt]="drink.name" />
+        </div>
+
+        <article class="details-content">
+          <span class="category">{{ drink.category }}</span>
+
+          <h1>{{ drink.name }}</h1>
+
+          <p class="description">{{ drink.description }}</p>
+
+          <section aria-labelledby="ingredients-heading">
+            <h2 id="ingredients-heading">Ingredients</h2>
+
+            <ul class="ingredient-list">
+              @for (ingredient of drink.ingredients; track ingredient) {
+                <li>
+                  <span class="ingredient-dot" aria-hidden="true"></span>
+                  {{ ingredient }}
+                </li>
+              }
+            </ul>
+          </section>
+
+          <section aria-labelledby="instructions-heading">
+            <h2 id="instructions-heading">Instructions</h2>
+
+            <ol class="instruction-list">
+              @for (instruction of drink.instructions; track $index) {
+                <li>
+                  <span class="step-number">{{ $index + 1 }}</span>
+
+                  <span>{{ instruction }}</span>
+                </li>
+              }
+            </ol>
+          </section>
+        </article>
+      </div>
+    } @else {
+      <div class="not-found">
+        <h1>Cocktail not found</h1>
+
+        <p>We couldn't find the cocktail you're looking for.</p>
+
+        <a routerLink="/" class="back-home-link"> Back to StirLab </a>
+      </div>
+    }
+  </div>
+</main>

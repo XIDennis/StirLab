@@ -8,6 +8,11 @@
 
     <p>{{ description }}</p>
 
-    <button type="button">View recipe</button>
+    <a
+      [routerLink]="['/cocktails', id]"
+      class="recipe-link"
+    >
+      View recipe
+    </a>
   </div>
 </article>

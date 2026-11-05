@@ -1,0 +1,55 @@
+<main class="page-container">
+  <header class="page-header">
+    <h1>{{ title }}</h1>
+    <p>{{ subtitle }}</p>
+  </header>
+
+  <div class="controls">
+    <section class="cocktail-search" aria-labelledby="search-label">
+      <label id="search-label" for="cocktail-search-input">Search cocktails</label>
+      <input
+        #searchInput
+        id="cocktail-search-input"
+        type="text"
+        placeholder="Search cocktails..."
+        autocomplete="off"
+        (input)="searchTerm.set(searchInput.value)"
+        class="input-field"
+      />
+    </section>
+
+    <section class="category-filter" aria-labelledby="category-label">
+      <h2 id="category-label">Filter by category</h2>
+      <div class="category-list">
+        @for (category of categories; track category) {
+          <button
+            type="button"
+            (click)="selectedCategory.set(category)"
+            [class.selected]="selectedCategory() === category"
+            [attr.aria-pressed]="selectedCategory() === category"
+          >
+            {{ category }}
+          </button>
+        }
+      </div>
+    </section>
+  </div>
+
+  <section class="cocktail-grid" aria-label="Cocktail results">
+    @for (cocktail of filteredCocktails(); track cocktail.id) {
+      <app-cocktail-card
+        [name]="cocktail.name"
+        [category]="cocktail.category"
+        [image]="cocktail.image"
+        [description]="cocktail.description"
+        [id]="cocktail.id"
+      />
+    } @empty {
+      <div class="empty-state">
+        <h2>No cocktails found</h2>
+
+        <p>Try another search or category.</p>
+      </div>
+    }
+  </section>
+</main>

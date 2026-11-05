@@ -1,6 +1,7 @@
 .cocktail-card {
   display: flex;
   flex-direction: column;
+  max-width: 20rem;
   height: 100%;
   overflow: hidden;
   border: 1px solid #333;
@@ -44,25 +45,29 @@
   line-height: 1.5;
 }
 
-.card-content button {
+.recipe-link {
   align-self: flex-start;
   margin-top: 1rem;
   padding: 0.625rem 1rem;
-  border: 0;
   border-radius: 0.375rem;
   background: #d4a373;
   color: #171717;
   font: inherit;
-  cursor: pointer;
   font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease;
 }
 
-.card-content button:hover,
-.card-content button:focus-visible {
+.recipe-link:hover {
   background: #f0c08e;
+  transform: translateY(-1px);
 }
 
-.card-content button:focus-visible {
+.recipe-link:focus-visible {
   outline: 3px solid rgb(245 158 11 / 40%);
   outline-offset: 2px;
+  box-shadow: 0 0 0 2px #262626;
 }
