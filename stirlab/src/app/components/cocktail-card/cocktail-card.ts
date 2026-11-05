@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './cocktail-card.css',
 })
 export class CocktailCard {
-  @Input() id: number = 0;
+  @Input() id: string = '';
   @Input() name: string = '';
   @Input() category: string = '';
   @Input() image: string = '';

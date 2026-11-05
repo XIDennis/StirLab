@@ -5,6 +5,12 @@
   </header>
 
   <div class="controls">
+    @if (cocktailService.isLoading()) {
+      <p class="library-status">Loading cocktail library...</p>
+    } @else if (cocktailService.error()) {
+      <p class="library-status error">{{ cocktailService.error() }}</p>
+    }
+
     <section class="cocktail-search" aria-labelledby="search-label">
       <label id="search-label" for="cocktail-search-input">Search cocktails</label>
       <input
@@ -18,10 +24,49 @@
       />
     </section>
 
+    <section class="ingredient-picker" aria-labelledby="ingredient-label">
+      <h2 id="ingredient-label">What ingredients do you have?</h2>
+      <p>Select ingredients to see cocktails you can make.</p>
+      <div class="ingredient-entry">
+        <input
+          #ingredientInput
+          id="ingredient-search-input"
+          type="text"
+          list="ingredient-options"
+          placeholder="Search ingredients..."
+          autocomplete="off"
+          [value]="ingredientSearch()"
+          (input)="ingredientSearch.set(ingredientInput.value)"
+        />
+        <datalist id="ingredient-options">
+          @for (ingredient of matchingIngredients(); track ingredient.key) {
+            <option [value]="ingredient.name"></option>
+          }
+        </datalist>
+        <button
+          type="button"
+          [disabled]="!selectedIngredient()"
+          (click)="addSelectedIngredient()"
+        >
+          Add
+        </button>
+      </div>
+
+      @if (availableIngredientKeys().length) {
+        <div class="selected-ingredients" aria-label="Your available ingredients">
+          @for (key of availableIngredientKeys(); track key) {
+            <button type="button" class="ingredient-chip" (click)="removeIngredient(key)">
+              {{ ingredientName(key) }} <span aria-hidden="true">&times;</span>
+            </button>
+          }
+        </div>
+      }
+    </section>
+
     <section class="category-filter" aria-labelledby="category-label">
       <h2 id="category-label">Filter by category</h2>
       <div class="category-list">
-        @for (category of categories; track category) {
+        @for (category of categories(); track category) {
           <button
             type="button"
             (click)="selectedCategory.set(category)"

@@ -2,7 +2,11 @@
   <div class="details-container">
     <a routerLink="/" class="back-link"> Back to cocktails </a>
 
-    @if (cocktail; as drink) {
+    @if (isLoading()) {
+      <div class="not-found">
+        <p>Loading cocktail recipe...</p>
+      </div>
+    } @else if (cocktail(); as drink) {
       <div class="details-grid">
         <div class="details-image">
           <img [src]="drink.image" [alt]="drink.name" />
@@ -19,10 +23,10 @@
             <h2 id="ingredients-heading">Ingredients</h2>
 
             <ul class="ingredient-list">
-              @for (ingredient of drink.ingredients; track ingredient) {
+              @for (ingredient of drink.ingredients; track ingredient.ingredient.key) {
                 <li>
                   <span class="ingredient-dot" aria-hidden="true"></span>
-                  {{ ingredient }}
+                  {{ ingredient.measure }} {{ ingredient.ingredient.name }}
                 </li>
               }
             </ul>

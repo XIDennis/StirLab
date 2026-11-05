@@ -1,88 +1,144 @@
-import { Injectable } from '@angular/core';
-import { Cocktail } from '../models/cocktail';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, inject, signal } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
+import { Cocktail, CocktailIngredient, Ingredient } from '../models/cocktail';
+
+interface CocktailDbSummary {
+  idDrink: string;
+  strDrink: string;
+  strDrinkThumb: string;
+}
+
+interface CocktailDbResponse {
+  drinks: CocktailDbDetails[] | null;
+}
+
+interface CocktailDbDetails extends CocktailDbSummary {
+  strCategory: string | null;
+  strInstructions: string | null;
+  [key: `strIngredient${number}`]: string | null;
+  [key: `strMeasure${number}`]: string | null;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class CocktailService {
-  private cocktails: Cocktail[] = [
-    {
-      id: 1,
-      name: 'Mojito',
-      category: 'Refreshing',
-      image: 'https://www.thecocktaildb.com/images/media/drink/metwgh1606770327.jpg',
-      description: 'A refreshing Cuban cocktail with rum, lime, mint and soda water.',
-      ingredients: [
-        '50 ml white rum',
-        '25 ml lime juice',
-        '2 teaspoons sugar',
-        '6-8 mint leaves',
-        'Soda water',
-        'Crushed ice',
-      ],
-      instructions: [
-        'Add mint leaves, sugar and lime juice to a glass.',
-        'Gently muddle the ingredients.',
-        'Add white rum and crushed ice.',
-        'Top with soda water and stir gently.',
-        'Garnish with mint leaves and serve.',
-      ],
-    },
-    {
-      id: 2,
-      name: 'Margarita',
-      category: 'Sour',
-      image: 'https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg',
-      description: 'A classic tequila cocktail with lime juice and orange liqueur.',
-      ingredients: [
-        '50 ml tequila blanco',
-        '25 ml Cointreau',
-        '25 ml lime juice',
-        'Ice',
-        'Salt for the rim',
-      ],
-      instructions: [
-        'Prepare a salt rim on your glass.',
-        'Add tequila, Cointreau and lime juice to a shaker.',
-        'Fill with ice and shake vigorously.',
-        'Strain into your prepared glass.',
-      ],
-    },
-    {
-      id: 3,
-      name: 'Negroni',
-      category: 'Bitter',
-      image: 'https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg',
-      description: 'An Italian classic made with gin, vermouth and Campari.',
-      ingredients: ['30 ml gin', '30 ml Campari', '30 ml sweet vermouth', 'Ice', 'Orange slice'],
-      instructions: [
-        'Add gin, Campari and sweet vermouth to a mixing glass.',
-        'Fill with ice and stir until chilled.',
-        'Strain over fresh ice.',
-        'Garnish with an orange slice.',
-      ],
-    },
-    {
-      id: 4,
-      name: 'Daiquiri',
-      category: 'Sour',
-      image: 'https://www.thecocktaildb.com/images/media/drink/mrz9091589574515.jpg',
-      description: 'A simple Cuban cocktail made with rum, lime and sugar.',
-      ingredients: ['60 ml white rum', '25 ml lime juice', '15 ml simple syrup', 'Ice'],
-      instructions: [
-        'Add rum, lime juice and simple syrup to a shaker.',
-        'Fill with ice and shake vigorously.',
-        'Double strain into a chilled cocktail glass.',
-        'Serve immediately.',
-      ],
-    },
-  ];
+  private readonly apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1';
+  private readonly http = inject(HttpClient);
+  private loadingPromise: Promise<void> | undefined;
 
-  getCocktails(): Cocktail[] {
-    return this.cocktails;
+  readonly cocktails = signal<Cocktail[]>([]);
+  readonly ingredients = signal<Ingredient[]>([]);
+  readonly isLoading = signal(false);
+  readonly error = signal('');
+
+  async loadLibrary(): Promise<void> {
+    if (this.loadingPromise) {
+      return this.loadingPromise;
+    }
+
+    this.loadingPromise = this.fetchLibrary();
+    try {
+      await this.loadingPromise;
+    } finally {
+      this.loadingPromise = undefined;
+    }
   }
 
-  getCocktailById(id: number): Cocktail | undefined {
-    return this.cocktails.find((cocktail) => cocktail.id === id);
+  async getCocktailById(id: string): Promise<Cocktail | undefined> {
+    await this.loadLibrary();
+    return this.cocktails().find((cocktail) => cocktail.id === id);
   }
+
+  private async fetchLibrary(): Promise<void> {
+    this.isLoading.set(true);
+    this.error.set('');
+
+    try {
+      const details = await this.fetchDetails();
+      const cocktails = details.map((detail) => this.mapCocktail(detail));
+      const ingredients = this.createIngredientLibrary(cocktails);
+
+      this.cocktails.set(cocktails);
+      this.ingredients.set(ingredients);
+      if (!cocktails.length) {
+        this.error.set('The cocktail library returned no recipes. Please try again.');
+      }
+    } catch (error) {
+      console.error('Unable to load cocktail library from TheCocktailDB.', error);
+      this.error.set('The cocktail library could not be loaded. Please try again.');
+    } finally {
+      this.isLoading.set(false);
+    }
+  }
+
+  private async fetchDetails(): Promise<CocktailDbDetails[]> {
+    const results = await Promise.allSettled(
+      'abcdefghijklmnopqrstuvwxyz'.split('').map((letter) =>
+        firstValueFrom(
+          this.http.get<CocktailDbResponse>(`${this.apiUrl}/search.php?f=${letter}`),
+        ),
+      ),
+    );
+
+    const details = results.flatMap((result) =>
+      result.status === 'fulfilled' ? (result.value.drinks ?? []) : [],
+    );
+    return [...new Map(details.map((cocktail) => [cocktail.idDrink, cocktail])).values()];
+  }
+
+  private mapCocktail(details: CocktailDbDetails): Cocktail {
+    const ingredients: CocktailIngredient[] = [];
+    for (let index = 1; index <= 15; index += 1) {
+      const name = details[`strIngredient${index}`]?.trim();
+      if (!name) {
+        continue;
+      }
+
+      ingredients.push({
+        ingredient: {
+          key: this.normalizeIngredient(name),
+          name,
+        },
+        measure: details[`strMeasure${index}`]?.trim() ?? '',
+      });
+    }
+
+    return {
+      id: details.idDrink,
+      name: details.strDrink,
+      category: details.strCategory?.trim() || 'Other',
+      image: details.strDrinkThumb,
+      description: details.strInstructions?.split('. ')[0] || 'A classic cocktail recipe.',
+      ingredients,
+      instructions: details.strInstructions
+        ? details.strInstructions.split(/\.\s+/).filter(Boolean).map((instruction) =>
+            instruction.endsWith('.') ? instruction : `${instruction}.`,
+          )
+        : [],
+    };
+  }
+
+  private createIngredientLibrary(cocktails: Cocktail[]): Ingredient[] {
+    const ingredients = new Map<string, Ingredient>();
+    for (const cocktail of cocktails) {
+      for (const item of cocktail.ingredients) {
+        ingredients.set(item.ingredient.key, item.ingredient);
+      }
+    }
+    return [...ingredients.values()].sort((first, second) =>
+      first.name.localeCompare(second.name),
+    );
+  }
+
+  private normalizeIngredient(name: string): string {
+    return name
+      .toLowerCase()
+      .replace(/&/g, 'and')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-');
+  }
+
 }
