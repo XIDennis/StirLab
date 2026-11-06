@@ -17,6 +17,7 @@ export class CocktailCard {
   @Input() missingIngredients: number | undefined;
   @Input() isReady = false;
   @Input() isUnavailable = false;
+  @Input() isPopular = false;
 
   get ingredientsPreview(): string {
     if (!this.ingredients || this.ingredients.length === 0) return '';

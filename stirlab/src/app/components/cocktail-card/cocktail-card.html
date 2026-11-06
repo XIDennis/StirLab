@@ -1,4 +1,9 @@
-<article class="cocktail-card" [class.ready-to-make]="isReady" [class.unavailable]="isUnavailable">
+<article
+  class="cocktail-card"
+  [class.ready-to-make]="isReady"
+  [class.unavailable]="isUnavailable"
+  [class.popular]="isPopular"
+>
   <img [src]="image" [alt]="name" loading="lazy" />
 
   <div class="card-content">

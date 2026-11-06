@@ -12,6 +12,7 @@ interface CocktailMatch {
   missingIngredients: number;
   isReady: boolean;
   isUnavailable: boolean;
+  isPopular: boolean;
 }
 
 @Component({
@@ -61,6 +62,7 @@ export class Home {
           missingIngredients,
           isReady: hasIngredientFilter && missingIngredients === 0,
           isUnavailable: hasIngredientFilter && availableIngredientCount === 0,
+          isPopular: cocktail.popular,
         };
       })
       .filter(({ cocktail, missingIngredients }) => {

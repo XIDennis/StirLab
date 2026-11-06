@@ -30,6 +30,11 @@
   opacity: 0.72;
 }
 
+.cocktail-card.popular {
+  border-color: #d4a373;
+  border-width: 1px;
+}
+
 .cocktail-card.unavailable img {
   filter: grayscale(1);
   opacity: 0.55;
