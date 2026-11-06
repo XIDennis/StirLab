@@ -75,15 +75,29 @@ export class Home {
         return matchesSearch && matchesCategory && matchesIngredients;
       })
       .sort((first, second) => {
-        if (!hasIngredientFilter) return 0;
+        if (!hasIngredientFilter) {
+          return first.cocktail.popular === second.cocktail.popular
+            ? 0
+            : first.cocktail.popular
+              ? -1
+              : 1;
+        }
 
-        // Push unavailable cocktails (0 matching ingredients) to the very bottom
+        // 1. Push unavailable cocktails (0 matching ingredients) to the very bottom
         if (first.isUnavailable !== second.isUnavailable) {
           return first.isUnavailable ? 1 : -1;
         }
 
-        // Sort the remaining cocktails by least missing ingredients first
-        return first.missingIngredients - second.missingIngredients;
+        // 2. Sort by least missing ingredients first
+        if (first.missingIngredients !== second.missingIngredients) {
+          return first.missingIngredients - second.missingIngredients;
+        }
+
+        // 3. TIE-BREAKER: If missing ingredients are equal, popular cocktails come first
+        if (first.cocktail.popular && !second.cocktail.popular) return -1;
+        if (!first.cocktail.popular && second.cocktail.popular) return 1;
+
+        return 0;
       });
   });
 

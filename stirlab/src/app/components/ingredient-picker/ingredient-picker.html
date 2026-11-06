@@ -32,12 +32,12 @@
     </div>
   }
 
+  <button type="button" (click)="addAllBasicIngredients()">
+    Add all basic household ingredients
+  </button>
+
   <label class="unavailable-toggle">
-    <input
-      type="checkbox"
-      [checked]="showUnavailable()"
-      (change)="setShowUnavailable($event)"
-    />
+    <input type="checkbox" [checked]="showUnavailable()" (change)="setShowUnavailable($event)" />
     <span>Show unavailable cocktails</span>
   </label>
 </section>

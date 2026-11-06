@@ -16,6 +16,22 @@ export class IngredientPicker {
   readonly availableIngredientKeys = this.cocktailService.availableIngredientKeys;
   readonly ingredientSearch = signal('');
 
+  readonly basicIngredientKeys: string[] = [
+    'water',
+    'sugar',
+    'salt',
+    'simple-syrup',
+    'sugar-syrup',
+    'soda-water',
+    'lemon',
+    'lemon-juice',
+    'ice',
+    'coffe',
+    'cinnamon',
+    'cola',
+    'egg',
+  ];
+
   readonly matchingIngredients = computed(() => {
     const search = this.ingredientSearch().toLowerCase().trim();
     return this.ingredients()
@@ -48,5 +64,11 @@ export class IngredientPicker {
 
   setShowUnavailable(event: Event): void {
     this.showUnavailableChange.emit((event.target as HTMLInputElement).checked);
+  }
+
+  addAllBasicIngredients(): void {
+    for (const ingredient of this.basicIngredientKeys) {
+      this.cocktailService.addAvailableIngredient(ingredient);
+    }
   }
 }

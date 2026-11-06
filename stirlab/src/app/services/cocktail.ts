@@ -61,7 +61,7 @@ export class CocktailService {
     });
   }
 
-  private readonly dataUrl = 'cocktails.clean.json';
+  private readonly dataUrl = 'cocktails_updated.json';
 
   private async fetchLibrary(): Promise<void> {
     this.isLoading.set(true);

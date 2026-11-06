@@ -16,4 +16,5 @@ export interface Cocktail {
   description: string;
   ingredients: CocktailIngredient[];
   instructions: string[];
+  popular: boolean;
 }
