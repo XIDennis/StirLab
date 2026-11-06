@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CocktailIngredient } from '../../models/cocktail';
 
 @Component({
   selector: 'app-cocktail-card',
@@ -12,8 +13,20 @@ export class CocktailCard {
   @Input() name: string = '';
   @Input() category: string = '';
   @Input() image: string = '';
-  @Input() description: string = '';
+  @Input() ingredients: CocktailIngredient[] | undefined;
   @Input() missingIngredients: number | undefined;
   @Input() isReady = false;
   @Input() isUnavailable = false;
+
+  get ingredientsPreview(): string {
+    if (!this.ingredients || this.ingredients.length === 0) return '';
+
+    const fullString = this.ingredients.map((item) => item.ingredient.name).join(', ');
+
+    if (fullString.length > 50) {
+      return fullString.substring(0, 47) + '...';
+    }
+
+    return fullString;
+  }
 }

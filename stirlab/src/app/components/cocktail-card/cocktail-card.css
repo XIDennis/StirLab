@@ -3,6 +3,7 @@
   flex-direction: column;
   max-width: 20rem;
   height: 100%;
+  max-height: 30rem;
   overflow: hidden;
   border: 1px solid #333;
   border-radius: 0.75rem;
@@ -70,8 +71,9 @@
   flex: 1;
   margin: 0;
   color: #aaaaaa;
-  font-size: 0.875rem;
+  font-size: 0.65rem;
   line-height: 1.5;
+  font-style: italic;
 }
 
 .card-content .ingredient-status {

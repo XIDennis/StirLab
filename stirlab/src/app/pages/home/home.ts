@@ -96,5 +96,4 @@ export class Home {
   setCategory(category: string): void {
     this.selectedCategory.set(category);
   }
-
 }
