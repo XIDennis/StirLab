@@ -64,9 +64,7 @@ export class Home {
         };
       })
       .filter(({ cocktail, missingIngredients }) => {
-        const matchesSearch =
-          cocktail.name.toLowerCase().includes(search) ||
-          cocktail.description.toLowerCase().includes(search);
+        const matchesSearch = cocktail.name.toLowerCase().includes(search);
 
         const matchesCategory = category === 'All' || cocktail.category === category;
         const matchesIngredients =
