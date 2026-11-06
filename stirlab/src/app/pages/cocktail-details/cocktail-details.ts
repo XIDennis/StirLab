@@ -30,4 +30,11 @@ export class CocktailDetails {
     this.cocktail.set(await this.cocktailService.getCocktailById(id));
     this.isLoading.set(false);
   }
+
+  searchTag(): string | undefined {
+    if (this.cocktail()?.category === 'Cocktail' || this.cocktail()?.category === 'Shot') {
+      return this.cocktail()?.category;
+    }
+    return 'drink';
+  }
 }

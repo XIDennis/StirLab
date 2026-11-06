@@ -45,6 +45,22 @@
               }
             </ol>
           </section>
+          <section>
+            <h2>Look it up!</h2>
+
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.google.com/search?q={{ drink.name }}+{{ searchTag() }}"
+              >Google</a
+            >
+            <a
+              href="https://www.youtube.com/results?search_query={{ drink.name }}+{{ searchTag() }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              >YouTube</a
+            >
+          </section>
         </article>
       </div>
     } @else {
