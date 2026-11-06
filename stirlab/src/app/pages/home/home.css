@@ -45,30 +45,6 @@
   color: #fca5a5;
 }
 
-.input-field {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0.875rem 1.25rem;
-  border: 1px solid rgb(255 255 255 / 10%);
-  border-radius: 0.75rem;
-  background: #262626;
-  color: #fff;
-  font: inherit;
-  transition:
-    border-color 150ms ease,
-    box-shadow 150ms ease;
-}
-
-.input-field::placeholder {
-  color: #737373;
-}
-
-.input-field:focus {
-  border-color: #f59e0b;
-  outline: none;
-  box-shadow: 0 0 0 3px rgb(245 158 11 / 20%);
-}
-
 .cocktail-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
