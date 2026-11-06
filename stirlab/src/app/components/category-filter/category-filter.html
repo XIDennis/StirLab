@@ -1,0 +1,16 @@
+<section class="category-filter" aria-labelledby="category-label">
+  <h2 id="category-label">Filter by category</h2>
+  <div class="category-list">
+    @for (category of categories(); track category) {
+      <button
+        type="button"
+        (click)="categorySelected.emit(category)"
+        [class.selected]="selectedCategory() === category"
+        [class.all-categories]="category === 'All'"
+        [attr.aria-pressed]="selectedCategory() === category"
+      >
+        {{ category }}
+      </button>
+    }
+  </div>
+</section>

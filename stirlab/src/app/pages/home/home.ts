@@ -3,6 +3,7 @@ import { CocktailCard } from '../../components/cocktail-card/cocktail-card';
 import { Cocktail } from '../../models/cocktail';
 import { CocktailService } from '../../services/cocktail';
 import { CocktailSearch } from '../../components/cocktail-search/cocktail-search';
+import { CategoryFilter } from '../../components/category-filter/category-filter';
 
 interface CocktailMatch {
   cocktail: Cocktail;
@@ -14,7 +15,7 @@ interface CocktailMatch {
 
 @Component({
   selector: 'app-home',
-  imports: [CocktailCard, CocktailSearch],
+  imports: [CocktailCard, CocktailSearch, CategoryFilter],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -105,6 +106,10 @@ export class Home {
 
   constructor() {
     void this.cocktailService.loadLibrary();
+  }
+
+  setCategory(category: string): void {
+    this.selectedCategory.set(category);
   }
 
   addIngredient(key: string): void {

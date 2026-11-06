@@ -69,11 +69,6 @@
   box-shadow: 0 0 0 3px rgb(245 158 11 / 20%);
 }
 
-.category-filter {
-  width: 100%;
-  text-align: center;
-}
-
 .ingredient-picker {
   width: 100%;
   padding: 1.25rem;
@@ -170,54 +165,6 @@
 .ingredient-chip:focus-visible {
   background: #d4a373;
   color: #171717;
-}
-
-.category-filter h2 {
-  margin-bottom: 0.75rem;
-}
-
-.category-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-}
-
-.category-list button {
-  padding: 0.625rem 1.25rem;
-  border: 1px solid #404040;
-  border-radius: 999px;
-  background: #262626;
-  color: #d4d4d4;
-  font: inherit;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition:
-    background-color 150ms ease,
-    border-color 150ms ease,
-    color 150ms ease;
-}
-
-.category-list button:hover,
-.category-list button:focus-visible {
-  border-color: #f59e0b;
-  color: #fff;
-}
-
-.category-list button:focus-visible {
-  outline: 3px solid rgb(245 158 11 / 30%);
-  outline-offset: 2px;
-}
-
-.category-list button.selected {
-  border-color: #d97706;
-  background: #d97706;
-  color: #fff;
-}
-
-.category-list button.all-categories {
-  border: 2px solid #f59e0b;
 }
 
 .cocktail-grid {
