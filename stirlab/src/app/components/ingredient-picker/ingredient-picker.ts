@@ -71,4 +71,12 @@ export class IngredientPicker {
       this.cocktailService.addAvailableIngredient(ingredient);
     }
   }
+  containsAllBasicIngredients(): boolean {
+    return this.basicIngredientKeys.every((item) => this.availableIngredientKeys().includes(item));
+  }
+  removeAllIngredients(): void {
+    for (const key of this.availableIngredientKeys()) {
+      this.cocktailService.removeAvailableIngredient(key);
+    }
+  }
 }

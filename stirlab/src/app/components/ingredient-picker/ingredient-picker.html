@@ -32,12 +32,18 @@
     </div>
   }
 
-  <button type="button" (click)="addAllBasicIngredients()">
-    Add all basic household ingredients
-  </button>
+  @if (!containsAllBasicIngredients()) {
+    <button type="button" (click)="addAllBasicIngredients()">
+      Add all basic household ingredients
+    </button>
+  }
 
   <label class="unavailable-toggle">
     <input type="checkbox" [checked]="showUnavailable()" (change)="setShowUnavailable($event)" />
     <span>Show unavailable cocktails</span>
   </label>
+
+  @if (availableIngredientKeys().length) {
+    <button type="button" (click)="removeAllIngredients()">Clear ingredients</button>
+  }
 </section>
