@@ -11,18 +11,7 @@
       <p class="library-status error">{{ cocktailService.error() }}</p>
     }
 
-    <section class="cocktail-search" aria-labelledby="search-label">
-      <label id="search-label" for="cocktail-search-input">Search cocktails</label>
-      <input
-        #searchInput
-        id="cocktail-search-input"
-        type="text"
-        placeholder="Search cocktails..."
-        autocomplete="off"
-        (input)="searchTerm.set(searchInput.value)"
-        class="input-field"
-      />
-    </section>
+    <app-cocktail-search (searchChange)="searchTerm.set($event)" />
 
     <section class="ingredient-picker" aria-labelledby="ingredient-label">
       <h2 id="ingredient-label">What ingredients do you have?</h2>
@@ -43,11 +32,7 @@
             <option [value]="ingredient.name"></option>
           }
         </datalist>
-        <button
-          type="button"
-          [disabled]="!selectedIngredient()"
-          (click)="addSelectedIngredient()"
-        >
+        <button type="button" [disabled]="!selectedIngredient()" (click)="addSelectedIngredient()">
           Add
         </button>
       </div>
@@ -80,6 +65,7 @@
             type="button"
             (click)="selectedCategory.set(category)"
             [class.selected]="selectedCategory() === category"
+            [class.all-categories]="category === 'All'"
             [attr.aria-pressed]="selectedCategory() === category"
           >
             {{ category }}

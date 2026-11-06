@@ -7,7 +7,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 
 const API = 'https://www.thecocktaildb.com/api/json/v1/1';
-const OUTPUT = 'public/cocktails.json'; // use 'src/assets/cocktails.json' on older Angular projects
+const OUTPUT = 'public/cocktails.json';
 const LETTERS = 'abcdefghijklmnopqrstuvwxyz0123456789'.split('');
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));

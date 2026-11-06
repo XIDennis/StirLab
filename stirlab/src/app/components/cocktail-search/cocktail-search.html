@@ -1,0 +1,12 @@
+<section class="cocktail-search" aria-labelledby="search-label">
+  <label id="search-label" for="cocktail-search-input">Search cocktails</label>
+  <input
+    #searchInput
+    id="cocktail-search-input"
+    type="text"
+    placeholder="Search cocktails..."
+    autocomplete="off"
+    (input)="searchChange.emit(searchInput.value)"
+    class="input-field"
+  />
+</section>

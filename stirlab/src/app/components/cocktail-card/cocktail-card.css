@@ -9,12 +9,16 @@
   background: #262626;
   color: #fff;
   box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 15%);
-  transition: border-color 150ms ease, box-shadow 150ms ease;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
 }
 
 .cocktail-card.ready-to-make {
   border-color: #4ade80;
-  box-shadow: 0 0.5rem 1.5rem rgb(74 222 128 / 15%), 0 0 0 1px #4ade80;
+  box-shadow:
+    0 0.5rem 1.5rem rgb(74 222 128 / 15%),
+    0 0 0 1px #4ade80;
 }
 
 .cocktail-card.unavailable {
@@ -31,7 +35,8 @@
 }
 
 .cocktail-card.unavailable .category,
-.cocktail-card.unavailable .ingredient-status {
+.cocktail-card.unavailable .ingredient-status,
+.card-content .ingredient-status {
   color: #a3a3a3;
 }
 

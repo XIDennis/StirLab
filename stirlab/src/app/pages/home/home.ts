@@ -2,6 +2,7 @@ import { Component, signal, computed, inject } from '@angular/core';
 import { CocktailCard } from '../../components/cocktail-card/cocktail-card';
 import { Cocktail } from '../../models/cocktail';
 import { CocktailService } from '../../services/cocktail';
+import { CocktailSearch } from '../../components/cocktail-search/cocktail-search';
 
 interface CocktailMatch {
   cocktail: Cocktail;
@@ -13,7 +14,7 @@ interface CocktailMatch {
 
 @Component({
   selector: 'app-home',
-  imports: [CocktailCard],
+  imports: [CocktailCard, CocktailSearch],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

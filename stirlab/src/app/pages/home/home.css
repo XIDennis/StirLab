@@ -29,7 +29,7 @@
 .controls {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: 1.5rem;
   margin: 0 auto 3rem;
   max-width: 48rem;
@@ -43,19 +43,6 @@
 
 .library-status.error {
   color: #fca5a5;
-}
-
-.cocktail-search {
-  width: min(100%, 28rem);
-}
-
-.cocktail-search label,
-.category-filter h2 {
-  display: block;
-  margin: 0 0 0.5rem;
-  color: #ddd;
-  font-size: 0.875rem;
-  font-weight: 600;
 }
 
 .input-field {
@@ -155,6 +142,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.625rem;
+  padding: 0.2rem 0.3rem;
   margin-top: 1rem;
   color: #d4d4d4;
   font-size: 0.875rem;
@@ -226,6 +214,10 @@
   border-color: #d97706;
   background: #d97706;
   color: #fff;
+}
+
+.category-list button.all-categories {
+  border: 2px solid #f59e0b;
 }
 
 .cocktail-grid {
