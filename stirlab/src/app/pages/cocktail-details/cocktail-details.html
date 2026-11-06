@@ -45,16 +45,19 @@
               }
             </ol>
           </section>
-          <section>
-            <h2>Look it up!</h2>
+          <section aria-labelledby="lookup-heading">
+            <h2 id="lookup-heading">Look it up!</h2>
 
             <a
+              class="lookup-link"
               target="_blank"
               rel="noopener noreferrer"
               href="https://www.google.com/search?q={{ drink.name }}+{{ searchTag() }}"
               >Google</a
             >
+            <br />
             <a
+              class="lookup-link"
               href="https://www.youtube.com/results?search_query={{ drink.name }}+{{ searchTag() }}"
               target="_blank"
               rel="noopener noreferrer"
