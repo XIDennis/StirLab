@@ -1,0 +1,43 @@
+<section class="ingredient-picker" aria-labelledby="ingredient-label">
+  <h2 id="ingredient-label">What ingredients do you have?</h2>
+  <p>Select ingredients to see cocktails you can make.</p>
+  <div class="ingredient-entry">
+    <input
+      #ingredientInput
+      id="ingredient-search-input"
+      type="text"
+      list="ingredient-options"
+      placeholder="Search ingredients..."
+      autocomplete="off"
+      [value]="ingredientSearch()"
+      (input)="ingredientSearch.set(ingredientInput.value)"
+    />
+    <datalist id="ingredient-options">
+      @for (ingredient of matchingIngredients(); track ingredient.key) {
+        <option [value]="ingredient.name"></option>
+      }
+    </datalist>
+    <button type="button" [disabled]="!selectedIngredient()" (click)="addSelectedIngredient()">
+      Add
+    </button>
+  </div>
+
+  @if (availableIngredientKeys().length) {
+    <div class="selected-ingredients" aria-label="Your available ingredients">
+      @for (key of availableIngredientKeys(); track key) {
+        <button type="button" class="ingredient-chip" (click)="removeIngredient(key)">
+          {{ ingredientName(key) }} <span aria-hidden="true">&times;</span>
+        </button>
+      }
+    </div>
+  }
+
+  <label class="unavailable-toggle">
+    <input
+      type="checkbox"
+      [checked]="showUnavailable()"
+      (change)="setShowUnavailable($event)"
+    />
+    <span>Show unavailable cocktails</span>
+  </label>
+</section>

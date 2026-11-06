@@ -4,6 +4,7 @@ import { Cocktail } from '../../models/cocktail';
 import { CocktailService } from '../../services/cocktail';
 import { CocktailSearch } from '../../components/cocktail-search/cocktail-search';
 import { CategoryFilter } from '../../components/category-filter/category-filter';
+import { IngredientPicker } from '../../components/ingredient-picker/ingredient-picker';
 
 interface CocktailMatch {
   cocktail: Cocktail;
@@ -15,7 +16,7 @@ interface CocktailMatch {
 
 @Component({
   selector: 'app-home',
-  imports: [CocktailCard, CocktailSearch, CategoryFilter],
+  imports: [CocktailCard, CocktailSearch, CategoryFilter, IngredientPicker],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -26,13 +27,9 @@ export class Home {
   readonly cocktailService = inject(CocktailService);
 
   cocktails = this.cocktailService.cocktails;
-  ingredients = this.cocktailService.ingredients;
-
   searchTerm = signal('');
 
   selectedCategory = signal('All');
-
-  ingredientSearch = signal('');
 
   availableIngredientKeys = this.cocktailService.availableIngredientKeys;
 
@@ -42,18 +39,6 @@ export class Home {
     'All',
     ...new Set(this.cocktails().map((cocktail) => cocktail.category)),
   ]);
-
-  matchingIngredients = computed(() => {
-    const search = this.ingredientSearch().toLowerCase().trim();
-    return this.ingredients()
-      .filter((ingredient) => ingredient.name.toLowerCase().includes(search))
-      .slice(0, 30);
-  });
-
-  selectedIngredient = computed(() => {
-    const search = this.ingredientSearch().trim().toLowerCase();
-    return this.ingredients().find((ingredient) => ingredient.name.toLowerCase() === search);
-  });
 
   filteredCocktails = computed(() => {
     const search = this.searchTerm().toLowerCase().trim();
@@ -112,31 +97,4 @@ export class Home {
     this.selectedCategory.set(category);
   }
 
-  addIngredient(key: string): void {
-    if (!key || this.availableIngredientKeys().includes(key)) {
-      return;
-    }
-
-    this.cocktailService.addAvailableIngredient(key);
-    this.ingredientSearch.set('');
-  }
-
-  addSelectedIngredient(): void {
-    const ingredient = this.selectedIngredient();
-    if (ingredient) {
-      this.addIngredient(ingredient.key);
-    }
-  }
-
-  setShowUnavailable(event: Event): void {
-    this.showUnavailableCocktails.set((event.target as HTMLInputElement).checked);
-  }
-
-  removeIngredient(key: string): void {
-    this.cocktailService.removeAvailableIngredient(key);
-  }
-
-  ingredientName(key: string): string {
-    return this.ingredients().find((ingredient) => ingredient.key === key)?.name ?? key;
-  }
 }
