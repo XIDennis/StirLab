@@ -1,4 +1,4 @@
-import { Component, signal, computed, inject } from '@angular/core';
+import { Component, signal, computed, inject, effect } from '@angular/core';
 import { CocktailCard } from '../../components/cocktail-card/cocktail-card';
 import { Cocktail } from '../../models/cocktail';
 import { CocktailService } from '../../services/cocktail';
@@ -35,6 +35,8 @@ export class Home {
   availableIngredientKeys = this.cocktailService.availableIngredientKeys;
 
   showUnavailableCocktails = signal(false);
+
+  showAllIngredients = signal<boolean>(localStorage.getItem('showAllIngredients') === 'true');
 
   categories = computed(() => [
     'All',
@@ -105,6 +107,9 @@ export class Home {
 
   constructor() {
     void this.cocktailService.loadLibrary();
+    effect(() => {
+      localStorage.setItem('showAllIngredients', String(this.showAllIngredients()));
+    });
   }
 
   setCategory(category: string): void {

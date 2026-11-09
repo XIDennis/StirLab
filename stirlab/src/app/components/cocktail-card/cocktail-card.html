@@ -11,7 +11,15 @@
 
     <h2>{{ name }}</h2>
 
-    @if (ingredientsPreview) {
+    @if (showAllIngredients && vmIngredients !== undefined) {
+      <ul class="ingredient-list">
+        @for (ingredient of vmIngredients; track ingredient.ingredient.key) {
+          <li [class.available]="ingredient.isAvailable">
+            {{ ingredient.ingredient.name }}
+          </li>
+        }
+      </ul>
+    } @else if (ingredientsPreview) {
       <p>{{ ingredientsPreview }}</p>
     }
 

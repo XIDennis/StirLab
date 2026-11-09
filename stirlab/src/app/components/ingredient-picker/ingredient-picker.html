@@ -26,7 +26,7 @@
     <div class="selected-ingredients" aria-label="Your available ingredients">
       @for (key of availableIngredientKeys(); track key) {
         <button type="button" class="ingredient-chip" (click)="removeIngredient(key)">
-          {{ ingredientName(key) }} <span aria-hidden="true">&times;</span>
+          {{ ingredientName(key) }} <span aria-hidden="true">×</span>
         </button>
       }
     </div>

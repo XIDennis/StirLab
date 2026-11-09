@@ -25,6 +25,15 @@
     />
   </div>
 
+  <label>
+    <input
+      type="checkbox"
+      [checked]="showAllIngredients()"
+      (change)="showAllIngredients.set(!showAllIngredients())"
+    />
+    <span>Show all ingredients</span>
+  </label>
+
   <section class="cocktail-grid" aria-label="Cocktail results">
     @for (match of filteredCocktails(); track match.cocktail.id) {
       <app-cocktail-card
@@ -39,6 +48,8 @@
         [isReady]="match.isReady"
         [isUnavailable]="match.isUnavailable"
         [isPopular]="match.isPopular"
+        [showAllIngredients]="showAllIngredients()"
+        [availableIngredientKeys]="availableIngredientKeys()"
       />
     } @empty {
       <div class="empty-state">
