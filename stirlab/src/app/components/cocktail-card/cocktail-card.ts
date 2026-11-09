@@ -26,6 +26,7 @@ export class CocktailCard implements OnChanges {
   @Input() availableIngredientKeys: string[] = [];
 
   public vmIngredients: CocktailIngredientVM[] | undefined;
+  public ingredientsPreview: string = '';
 
   ngOnChanges(changes: SimpleChanges) {
     // Only re-calculate when inputs actually change
@@ -35,7 +36,6 @@ export class CocktailCard implements OnChanges {
         return;
       }
 
-      // Convert array to a Set for ultra-fast O(1) lookups
       const keysSet = new Set(this.availableIngredientKeys);
 
       // Map the data once
@@ -43,18 +43,9 @@ export class CocktailCard implements OnChanges {
         ...ing,
         isAvailable: keysSet.has(ing.ingredient.key),
       }));
+      const fullString = this.ingredients.map((item) => item.ingredient.name).join(', ');
+      this.ingredientsPreview =
+        fullString.length > 50 ? fullString.substring(0, 47) + '...' : fullString;
     }
-  }
-
-  get ingredientsPreview(): string {
-    if (!this.ingredients || this.ingredients.length === 0) return '';
-
-    const fullString = this.ingredients.map((item) => item.ingredient.name).join(', ');
-
-    if (fullString.length > 50) {
-      return fullString.substring(0, 47) + '...';
-    }
-
-    return fullString;
   }
 }

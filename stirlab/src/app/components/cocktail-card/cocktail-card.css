@@ -47,6 +47,9 @@
   color: #a3a3a3;
   font-size: 0.875rem;
   line-height: 1.5;
+}
+
+p.preview {
   font-style: italic;
 }
 
@@ -133,7 +136,6 @@
   color: #737373;
 }
 
-.available {
-  background-color: #4ade80 !important;
-  color: black !important;
+.ingredient-list li.available {
+  border-color: #4ade80 !important;
 }

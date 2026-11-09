@@ -25,13 +25,13 @@
     />
   </div>
 
-  <label>
+  <label class="toggle-switch">
     <input
       type="checkbox"
       [checked]="showAllIngredients()"
       (change)="showAllIngredients.set(!showAllIngredients())"
     />
-    <span>Show all ingredients</span>
+    <span>Show ingredient cards</span>
   </label>
 
   <section class="cocktail-grid" aria-label="Cocktail results">
