@@ -32,18 +32,22 @@
     </div>
   }
 
-  @if (!containsAllBasicIngredients()) {
-    <button type="button" (click)="addAllBasicIngredients()">
-      Add all basic household ingredients
-    </button>
-  }
+  <div class="ingredient-picker-actions">
+    @if (!containsAllBasicIngredients()) {
+      <button type="button" class="ingredient-action-button" (click)="addAllBasicIngredients()">
+        Add all basic household ingredients
+      </button>
+    }
 
-  <label class="unavailable-toggle">
-    <input type="checkbox" [checked]="showUnavailable()" (change)="setShowUnavailable($event)" />
-    <span>Show unavailable cocktails</span>
-  </label>
+    <label class="unavailable-toggle">
+      <input type="checkbox" [checked]="showUnavailable()" (change)="setShowUnavailable($event)" />
+      <span>Show unavailable cocktails</span>
+    </label>
 
-  @if (availableIngredientKeys().length) {
-    <button type="button" (click)="removeAllIngredients()">Clear ingredients</button>
-  }
+    @if (availableIngredientKeys().length) {
+      <button type="button" class="ingredient-action-button" (click)="removeAllIngredients()">
+        Clear ingredients
+      </button>
+    }
+  </div>
 </section>

@@ -11,14 +11,34 @@
 .category-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 0.75rem;
+
+  max-height: 150px;
+  overflow-y: auto;
+  align-content: flex-start;
+  padding-right: 0.25rem;
+}
+
+.category-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.category-list::-webkit-scrollbar-thumb {
+  background-color: #d5cbbd;
+  border-radius: 4px;
+}
+
+.category-list::-webkit-scrollbar-thumb:hover {
+  background-color: #b9824b;
 }
 
 .category-list button {
   padding: 0.625rem 1.25rem;
   padding: 0.55rem 0.85rem;
   border: 1px solid #d5cbbd;
+  min-width: 10rem;
+  max-width: 10rem;
   border-radius: 999px;
   background: transparent;
   color: #746d63;

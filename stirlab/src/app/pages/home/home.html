@@ -26,7 +26,6 @@
           <p class="eyebrow">The collection</p>
           <h2 id="library-title">What can you make?</h2>
         </div>
-        <p class="section-note">Start with your ingredients, or browse the full library.</p>
       </div>
 
       <div class="controls">
@@ -36,18 +35,21 @@
           <p class="library-status error">{{ cocktailService.error() }}</p>
         }
 
-        <app-cocktail-search (searchChange)="searchTerm.set($event)" />
+        <div class="left-column">
+          <app-cocktail-search (searchChange)="searchTerm.set($event)" />
+          <app-category-filter
+            [categories]="categories()"
+            [selectedCategory]="selectedCategory()"
+            (categorySelected)="setCategory($event)"
+          />
+        </div>
 
-        <app-ingredient-picker
-          [showUnavailable]="showUnavailableCocktails()"
-          (showUnavailableChange)="showUnavailableCocktails.set($event)"
-        />
-
-        <app-category-filter
-          [categories]="categories()"
-          [selectedCategory]="selectedCategory()"
-          (categorySelected)="setCategory($event)"
-        />
+        <div class="right-column">
+          <app-ingredient-picker
+            [showUnavailable]="showUnavailableCocktails()"
+            (showUnavailableChange)="showUnavailableCocktails.set($event)"
+          />
+        </div>
       </div>
 
       <div class="library-toolbar">
