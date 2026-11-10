@@ -30,28 +30,28 @@
       </div>
 
       <div class="controls">
-      @if (cocktailService.isLoading()) {
-        <p class="library-status">Loading cocktail library...</p>
-      } @else if (cocktailService.error()) {
-        <p class="library-status error">{{ cocktailService.error() }}</p>
-      }
+        @if (cocktailService.isLoading()) {
+          <p class="library-status">Loading cocktail library...</p>
+        } @else if (cocktailService.error()) {
+          <p class="library-status error">{{ cocktailService.error() }}</p>
+        }
 
-      <app-cocktail-search (searchChange)="searchTerm.set($event)" />
+        <app-cocktail-search (searchChange)="searchTerm.set($event)" />
 
-      <app-ingredient-picker
-        [showUnavailable]="showUnavailableCocktails()"
-        (showUnavailableChange)="showUnavailableCocktails.set($event)"
-      />
+        <app-ingredient-picker
+          [showUnavailable]="showUnavailableCocktails()"
+          (showUnavailableChange)="showUnavailableCocktails.set($event)"
+        />
 
-      <app-category-filter
-        [categories]="categories()"
-        [selectedCategory]="selectedCategory()"
-        (categorySelected)="setCategory($event)"
-      />
+        <app-category-filter
+          [categories]="categories()"
+          [selectedCategory]="selectedCategory()"
+          (categorySelected)="setCategory($event)"
+        />
       </div>
 
       <div class="library-toolbar">
-        <p class="results-count">{{ filteredCocktails().length }} cocktails</p>
+        <p class="results-count">{{ filteredCocktails().length }} drinks</p>
         <label class="toggle-switch">
           <input
             type="checkbox"

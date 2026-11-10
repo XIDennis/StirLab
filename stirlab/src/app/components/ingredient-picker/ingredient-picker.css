@@ -8,6 +8,7 @@
 
 .ingredient-picker h2 {
   margin: 0;
+  color: #25231f;
   font-size: 1.125rem;
 }
 
@@ -15,6 +16,7 @@
   margin: 0.5rem 0 1rem;
   color: #746d63;
   font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .ingredient-entry {
@@ -25,12 +27,16 @@
 .ingredient-entry input {
   min-width: 0;
   flex: 1;
-  padding: 0.75rem 1rem;
+  padding: 0.95rem 1rem;
   border: 1px solid #d5cbbd;
   border-radius: 0.25rem;
   background: #f4efe7;
   color: #25231f;
   font: inherit;
+}
+
+.ingredient-entry input::placeholder {
+  color: #958b80;
 }
 
 .ingredient-entry input:focus {
@@ -39,15 +45,27 @@
   box-shadow: 0 0 0 3px rgb(185 130 75 / 18%);
 }
 
-.ingredient-entry button {
+.ingredient-entry button,
+.ingredient-picker > button {
   padding: 0.75rem 1rem;
-  border: 0;
-  border-radius: 0.5rem;
+  border: 1px solid #b9824b;
+  border-radius: 0.25rem;
   background: #b9824b;
   color: #fffaf3;
   font: inherit;
   font-weight: 700;
   cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    transform 150ms ease;
+}
+
+.ingredient-entry button:hover:not(:disabled),
+.ingredient-picker > button:hover {
+  border-color: #9c6534;
+  background: #9c6534;
+  transform: translateY(-1px);
 }
 
 .ingredient-entry button:disabled {
@@ -55,28 +73,19 @@
   opacity: 0.5;
 }
 
+.ingredient-entry button:focus-visible,
+.ingredient-picker > button:focus-visible,
+.ingredient-chip:focus-visible,
+.unavailable-toggle input:focus-visible {
+  outline: 3px solid rgb(185 130 75 / 22%);
+  outline-offset: 2px;
+}
+
 .selected-ingredients {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 1rem;
-}
-
-.unavailable-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  padding: 0.2rem 0.3rem;
-  margin-top: 1rem;
-  color: #746d63;
-  font-size: 0.875rem;
-  cursor: pointer;
-}
-
-.unavailable-toggle input {
-  width: 1rem;
-  height: 1rem;
-  accent-color: #b9824b;
 }
 
 .ingredient-chip {
@@ -88,107 +97,52 @@
   font: inherit;
   font-size: 0.875rem;
   cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
 }
 
-.ingredient-chip:hover,
-.ingredient-chip:focus-visible {
+.ingredient-chip:hover {
   background: #b9824b;
   color: #fffaf3;
 }
-.ingredient-picker {
-  width: 100%;
-  padding: 1.25rem;
-  border: 1px solid #333;
-  border-radius: 0.75rem;
-  background: #202020;
-}
 
-.ingredient-picker h2 {
-  margin: 0;
-  font-size: 1.125rem;
-}
-
-.ingredient-picker p {
-  margin: 0.5rem 0 1rem;
-  color: #a3a3a3;
-  font-size: 0.875rem;
-}
-
-.ingredient-entry {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.ingredient-entry input {
-  min-width: 0;
-  flex: 1;
-  padding: 0.75rem 1rem;
-  border: 1px solid #404040;
-  border-radius: 0.5rem;
-  background: #262626;
-  color: #fff;
-  font: inherit;
-}
-
-.ingredient-entry input:focus {
-  border-color: #f59e0b;
-  outline: none;
-  box-shadow: 0 0 0 3px rgb(245 158 11 / 20%);
-}
-
-.ingredient-entry button {
-  padding: 0.75rem 1rem;
-  border: 0;
-  border-radius: 0.5rem;
-  background: #d4a373;
-  color: #171717;
-  font: inherit;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.ingredient-entry button:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-.selected-ingredients {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+.ingredient-picker > button {
   margin-top: 1rem;
+  background: transparent;
+  color: #9c6534;
+}
+
+.ingredient-picker > button:hover {
+  color: #fffaf3;
 }
 
 .unavailable-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 0.625rem;
-  padding: 0.2rem 0.3rem;
+  gap: 0.25rem;
   margin-top: 1rem;
-  color: #d4d4d4;
+  color: #746d63;
   font-size: 0.875rem;
   cursor: pointer;
 }
 
 .unavailable-toggle input {
+  display: inline-flex;
   width: 1rem;
   height: 1rem;
-  accent-color: #d4a373;
+  margin: 0.25rem;
+  gap: 0.25rem;
+  accent-color: #b9824b;
 }
 
-.ingredient-chip {
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #d4a373;
-  border-radius: 999px;
-  background: transparent;
-  color: #f0c08e;
-  font: inherit;
-  font-size: 0.875rem;
-  cursor: pointer;
-}
+@media (max-width: 34rem) {
+  .ingredient-entry {
+    align-items: stretch;
+    flex-direction: column;
+  }
 
-.ingredient-chip:hover,
-.ingredient-chip:focus-visible {
-  background: #d4a373;
-  color: #171717;
+  .ingredient-entry button {
+    width: 100%;
+  }
 }

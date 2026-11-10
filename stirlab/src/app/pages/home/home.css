@@ -68,7 +68,12 @@
   padding: 8rem max(1.5rem, calc((100% - 76rem) / 2)) 6rem;
   color: #fff;
   background:
-    linear-gradient(90deg, rgb(20 20 18 / 88%) 0%, rgb(20 20 18 / 45%) 48%, rgb(20 20 18 / 18%) 100%),
+    linear-gradient(
+      90deg,
+      rgb(20 20 18 / 88%) 0%,
+      rgb(20 20 18 / 45%) 48%,
+      rgb(20 20 18 / 18%) 100%
+    ),
     url('/assets/images/home_bg.png') center / cover no-repeat;
 }
 
@@ -123,7 +128,9 @@
   display: inline-flex;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid rgb(255 255 255 / 55%);
-  transition: border-color 180ms ease, color 180ms ease;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease;
 }
 
 .hero-link:hover {
