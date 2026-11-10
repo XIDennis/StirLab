@@ -5,9 +5,9 @@
 
 .details-page {
   min-height: 100vh;
-  padding: 3rem 1.5rem;
-  background: #171717;
-  color: #fff;
+  padding: 7rem 1.5rem;
+  background: #f4efe7;
+  color: #25231f;
 }
 
 .details-container {
@@ -20,7 +20,7 @@
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 2.5rem;
-  color: #d4a373;
+  color: #9c6534;
   font-weight: 700;
   text-decoration: none;
   transition: color 150ms ease;
@@ -48,9 +48,9 @@
   display: block;
   width: 100%;
   max-height: 38rem;
-  border-radius: 1rem;
+  border-radius: 0.35rem;
   object-fit: cover;
-  box-shadow: 0 1rem 2rem rgb(0 0 0 / 25%);
+  box-shadow: 0 1rem 2rem rgb(70 52 34 / 13%);
 }
 
 .details-content {
@@ -58,7 +58,7 @@
 }
 
 .category {
-  color: #d4a373;
+  color: #a76f3b;
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -73,7 +73,7 @@
 
 .description {
   margin: 0 0 2rem;
-  color: #a3a3a3;
+  color: #746d63;
   line-height: 1.7;
 }
 
@@ -92,7 +92,7 @@
   gap: 0.75rem;
   margin: 0;
   padding: 0;
-  color: #d4d4d4;
+  color: #5f554a;
   list-style: none;
 }
 
@@ -110,7 +110,7 @@
   height: 0.5rem;
   margin-top: 0.5rem;
   border-radius: 50%;
-  background: #d4a373;
+  background: #b9824b;
 }
 
 .step-number {
@@ -120,8 +120,8 @@
   height: 1.75rem;
   place-items: center;
   border-radius: 50%;
-  background: #d4a373;
-  color: #171717;
+  background: #b9824b;
+  color: #fffaf3;
   font-weight: 700;
 }
 
@@ -137,22 +137,22 @@
 
 .not-found p {
   margin: 0 0 1.5rem;
-  color: #a3a3a3;
+  color: #746d63;
 }
 
 .back-home-link {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
-  background: #d4a373;
-  color: #171717;
+  background: #b9824b;
+  color: #fffaf3;
   font-weight: 700;
   text-decoration: none;
   transition: background-color 150ms ease;
 }
 
 .back-home-link:hover {
-  background: #f0c08e;
+  background: #9c6534;
 }
 
 .lookup-link {
@@ -160,8 +160,8 @@
   padding: 10px 20px;
   margin-bottom: 8px;
 
-  background-color: #ed9d1b;
-  color: #ffffff !important;
+  background-color: #b9824b;
+  color: #fffaf3 !important;
   font-family: Arial, sans-serif;
   font-weight: bold;
   font-size: 14px;
@@ -176,7 +176,7 @@
 }
 
 .lookup-link:hover {
-  background-color: #e49008;
+  background-color: #9c6534;
   text-decoration: none;
 }
 

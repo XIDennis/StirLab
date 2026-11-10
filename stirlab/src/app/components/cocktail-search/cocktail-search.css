@@ -1,12 +1,11 @@
 .cocktail-search {
-  width: 50%;
-  margin-inline: auto;
+  width: 100%;
 }
 
 .cocktail-search label {
   display: block;
-  margin: 0 auto 0.5rem;
-  color: #ddd;
+  margin: 0 0 0.5rem;
+  color: #746d63;
   font-size: 0.875rem;
   font-weight: 600;
 }
@@ -14,11 +13,11 @@
 .input-field {
   box-sizing: border-box;
   width: 100%;
-  padding: 0.875rem 1.25rem;
-  border: 1px solid rgb(255 255 255 / 10%);
-  border-radius: 0.75rem;
-  background: #262626;
-  color: #fff;
+  padding: 0.95rem 1rem;
+  border: 1px solid #d5cbbd;
+  border-radius: 0.35rem;
+  background: #fffaf3;
+  color: #25231f;
   font: inherit;
   transition:
     border-color 150ms ease,
@@ -26,11 +25,11 @@
 }
 
 .input-field::placeholder {
-  color: #737373;
+  color: #958b80;
 }
 
 .input-field:focus {
-  border-color: #f59e0b;
+  border-color: #b9824b;
   outline: none;
-  box-shadow: 0 0 0 3px rgb(245 158 11 / 20%);
+  box-shadow: 0 0 0 3px rgb(185 130 75 / 18%);
 }

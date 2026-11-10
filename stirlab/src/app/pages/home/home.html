@@ -1,62 +1,91 @@
-<main class="page-container">
-  <header class="page-header">
-    <h1>{{ title }}</h1>
-    <p>{{ subtitle }}</p>
+<main class="page-container" id="top">
+  <header class="site-nav">
+    <a class="brand" href="#top" aria-label="StirLab home">
+      <span class="brand-mark" aria-hidden="true">S</span>
+      <span>StirLab</span>
+    </a>
+    <a class="nav-link" href="#library">Browse library <span aria-hidden="true">↘</span></a>
   </header>
 
-  <div class="controls">
-    @if (cocktailService.isLoading()) {
-      <p class="library-status">Loading cocktail library...</p>
-    } @else if (cocktailService.error()) {
-      <p class="library-status error">{{ cocktailService.error() }}</p>
-    }
+  <section class="hero tools-container" aria-labelledby="page-title">
+    <div class="hero-content">
+      <p class="eyebrow">Cocktail library · {{ cocktails().length }} recipes</p>
+      <header class="page-header">
+        <h1 id="page-title">{{ title }}<span>.</span></h1>
+        <p>{{ subtitle }} Add what you have, then find a drink that fits.</p>
+      </header>
 
-    <app-cocktail-search (searchChange)="searchTerm.set($event)" />
+      <a class="hero-link" href="#library">Find a cocktail <span aria-hidden="true">↓</span></a>
+    </div>
+  </section>
 
-    <app-ingredient-picker
-      [showUnavailable]="showUnavailableCocktails()"
-      (showUnavailableChange)="showUnavailableCocktails.set($event)"
-    />
-
-    <app-category-filter
-      [categories]="categories()"
-      [selectedCategory]="selectedCategory()"
-      (categorySelected)="setCategory($event)"
-    />
-  </div>
-
-  <label class="toggle-switch">
-    <input
-      type="checkbox"
-      [checked]="showAllIngredients()"
-      (change)="showAllIngredients.set(!showAllIngredients())"
-    />
-    <span>Show ingredient cards</span>
-  </label>
-
-  <section class="cocktail-grid" aria-label="Cocktail results">
-    @for (match of filteredCocktails(); track match.cocktail.id) {
-      <app-cocktail-card
-        [name]="match.cocktail.name"
-        [category]="match.cocktail.category"
-        [image]="match.cocktail.image"
-        [ingredients]="match.cocktail.ingredients"
-        [id]="match.cocktail.id"
-        [missingIngredients]="
-          availableIngredientKeys().length ? match.missingIngredients : undefined
-        "
-        [isReady]="match.isReady"
-        [isUnavailable]="match.isUnavailable"
-        [isPopular]="match.isPopular"
-        [showAllIngredients]="showAllIngredients()"
-        [availableIngredientKeys]="availableIngredientKeys()"
-      />
-    } @empty {
-      <div class="empty-state">
-        <h2>No cocktails found</h2>
-
-        <p>Try another search or category.</p>
+  <section class="library-section" id="library" aria-labelledby="library-title">
+    <div class="library-shell">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">The collection</p>
+          <h2 id="library-title">What can you make?</h2>
+        </div>
+        <p class="section-note">Start with your ingredients, or browse the full library.</p>
       </div>
-    }
+
+      <div class="controls">
+      @if (cocktailService.isLoading()) {
+        <p class="library-status">Loading cocktail library...</p>
+      } @else if (cocktailService.error()) {
+        <p class="library-status error">{{ cocktailService.error() }}</p>
+      }
+
+      <app-cocktail-search (searchChange)="searchTerm.set($event)" />
+
+      <app-ingredient-picker
+        [showUnavailable]="showUnavailableCocktails()"
+        (showUnavailableChange)="showUnavailableCocktails.set($event)"
+      />
+
+      <app-category-filter
+        [categories]="categories()"
+        [selectedCategory]="selectedCategory()"
+        (categorySelected)="setCategory($event)"
+      />
+      </div>
+
+      <div class="library-toolbar">
+        <p class="results-count">{{ filteredCocktails().length }} cocktails</p>
+        <label class="toggle-switch">
+          <input
+            type="checkbox"
+            [checked]="showAllIngredients()"
+            (change)="showAllIngredients.set(!showAllIngredients())"
+          />
+          <span>Show ingredients on cards</span>
+        </label>
+      </div>
+
+      <section class="cocktail-grid" aria-label="Cocktail results">
+        @for (match of filteredCocktails(); track match.cocktail.id) {
+          <app-cocktail-card
+            [name]="match.cocktail.name"
+            [category]="match.cocktail.category"
+            [image]="match.cocktail.image"
+            [ingredients]="match.cocktail.ingredients"
+            [id]="match.cocktail.id"
+            [missingIngredients]="
+              availableIngredientKeys().length ? match.missingIngredients : undefined
+            "
+            [isReady]="match.isReady"
+            [isUnavailable]="match.isUnavailable"
+            [isPopular]="match.isPopular"
+            [showAllIngredients]="showAllIngredients()"
+            [availableIngredientKeys]="availableIngredientKeys()"
+          />
+        } @empty {
+          <div class="empty-state">
+            <h2>No cocktails found</h2>
+            <p>Try another search or category.</p>
+          </div>
+        }
+      </section>
+    </div>
   </section>
 </main>

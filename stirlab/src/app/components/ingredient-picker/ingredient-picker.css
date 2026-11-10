@@ -1,9 +1,9 @@
 .ingredient-picker {
   width: 100%;
   padding: 1.25rem;
-  border: 1px solid #333;
-  border-radius: 0.75rem;
-  background: #202020;
+  border: 1px solid #d5cbbd;
+  border-radius: 0.35rem;
+  background: #fffaf3;
 }
 
 .ingredient-picker h2 {
@@ -13,7 +13,7 @@
 
 .ingredient-picker p {
   margin: 0.5rem 0 1rem;
-  color: #a3a3a3;
+  color: #746d63;
   font-size: 0.875rem;
 }
 
@@ -26,25 +26,25 @@
   min-width: 0;
   flex: 1;
   padding: 0.75rem 1rem;
-  border: 1px solid #404040;
-  border-radius: 0.5rem;
-  background: #262626;
-  color: #fff;
+  border: 1px solid #d5cbbd;
+  border-radius: 0.25rem;
+  background: #f4efe7;
+  color: #25231f;
   font: inherit;
 }
 
 .ingredient-entry input:focus {
-  border-color: #f59e0b;
+  border-color: #b9824b;
   outline: none;
-  box-shadow: 0 0 0 3px rgb(245 158 11 / 20%);
+  box-shadow: 0 0 0 3px rgb(185 130 75 / 18%);
 }
 
 .ingredient-entry button {
   padding: 0.75rem 1rem;
   border: 0;
   border-radius: 0.5rem;
-  background: #d4a373;
-  color: #171717;
+  background: #b9824b;
+  color: #fffaf3;
   font: inherit;
   font-weight: 700;
   cursor: pointer;
@@ -68,7 +68,7 @@
   gap: 0.625rem;
   padding: 0.2rem 0.3rem;
   margin-top: 1rem;
-  color: #d4d4d4;
+  color: #746d63;
   font-size: 0.875rem;
   cursor: pointer;
 }
@@ -76,15 +76,15 @@
 .unavailable-toggle input {
   width: 1rem;
   height: 1rem;
-  accent-color: #d4a373;
+  accent-color: #b9824b;
 }
 
 .ingredient-chip {
   padding: 0.5rem 0.75rem;
-  border: 1px solid #d4a373;
+  border: 1px solid #b9824b;
   border-radius: 999px;
   background: transparent;
-  color: #f0c08e;
+  color: #9c6534;
   font: inherit;
   font-size: 0.875rem;
   cursor: pointer;
@@ -92,8 +92,8 @@
 
 .ingredient-chip:hover,
 .ingredient-chip:focus-visible {
-  background: #d4a373;
-  color: #171717;
+  background: #b9824b;
+  color: #fffaf3;
 }
 .ingredient-picker {
   width: 100%;

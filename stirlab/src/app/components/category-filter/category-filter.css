@@ -1,24 +1,27 @@
 .category-filter {
   width: 100%;
-  text-align: center;
 }
 .category-filter h2 {
-  margin-bottom: 0.75rem;
+  margin: 0 0 0.75rem;
+  color: #746d63;
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
 .category-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.75rem;
 }
 
 .category-list button {
   padding: 0.625rem 1.25rem;
-  border: 1px solid #404040;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid #d5cbbd;
   border-radius: 999px;
-  background: #262626;
-  color: #d4d4d4;
+  background: transparent;
+  color: #746d63;
   font: inherit;
   font-size: 0.875rem;
   font-weight: 600;
@@ -31,21 +34,21 @@
 
 .category-list button:hover,
 .category-list button:focus-visible {
-  border-color: #f59e0b;
-  color: #fff;
+  border-color: #b9824b;
+  color: #9c6534;
 }
 
 .category-list button:focus-visible {
-  outline: 3px solid rgb(245 158 11 / 30%);
+  outline: 3px solid rgb(185 130 75 / 22%);
   outline-offset: 2px;
 }
 
 .category-list button.selected {
-  border-color: #d97706;
-  background: #d97706;
-  color: #fff;
+  border-color: #b9824b;
+  background: #b9824b;
+  color: #fffaf3;
 }
 
 .category-list button.all-categories {
-  border: 2px solid #f59e0b;
+  border: 1px solid #b9824b;
 }
