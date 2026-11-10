@@ -107,6 +107,7 @@ export class Home {
 
   constructor() {
     void this.cocktailService.loadLibrary();
+    this.showAllIngredients.set(true);
     effect(() => {
       localStorage.setItem('showAllIngredients', String(this.showAllIngredients()));
     });
