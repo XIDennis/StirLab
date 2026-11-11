@@ -6,6 +6,12 @@
   background: #fffaf3;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
 .ingredient-picker h2 {
   margin: 0;
   color: #25231f;
@@ -20,6 +26,7 @@
 }
 
 .ingredient-entry {
+  position: relative;
   display: flex;
   gap: 0.75rem;
 }
@@ -45,36 +52,67 @@
   box-shadow: 0 0 0 3px rgb(185 130 75 / 18%);
 }
 
-.ingredient-entry button,
-.ingredient-picker > button {
-  padding: 0.75rem 1rem;
-  border: 1px solid #b9824b;
-  border-radius: 0.25rem;
-  background: #b9824b;
-  color: #fffaf3;
+.suggestions {
+  position: absolute;
+  z-index: 3;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  border: 1px solid #ded4c7;
+  border-radius: 0.5rem;
+  background: #fffdf9;
+  box-shadow: 0 16px 30px rgb(70 52 34 / 14%);
+}
+
+.suggestions li + li {
+  border-top: 1px solid #eee6dc;
+}
+
+.ingredient-search-option {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0.9rem;
+  border: 0;
+  background: transparent;
+  color: #25231f;
   font: inherit;
-  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: left;
   cursor: pointer;
   transition:
     background-color 150ms ease,
-    border-color 150ms ease,
-    transform 150ms ease;
+    color 150ms ease;
 }
 
-.ingredient-entry button:hover:not(:disabled),
-.ingredient-picker > button:hover {
-  border-color: #9c6534;
-  background: #9c6534;
-  transform: translateY(-1px);
+.ingredient-search-option:hover,
+.ingredient-search-option:focus-visible {
+  background: #f5eadc;
+  color: #9c6534;
+  outline: none;
 }
 
-.ingredient-entry button:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
+.ingredient-option-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.ingredient-entry button:focus-visible,
-.ingredient-picker > button:focus-visible,
+.ingredient-option-arrow {
+  flex: 0 0 auto;
+  color: #b9824b;
+  font-size: 1rem;
+  transition: transform 150ms ease;
+}
+
+.ingredient-search-option:hover .ingredient-option-arrow,
+.ingredient-search-option:focus-visible .ingredient-option-arrow {
+  transform: translate(2px, -2px);
+}
+
 .ingredient-chip:focus-visible,
 .unavailable-toggle input:focus-visible {
   outline: 3px solid rgb(185 130 75 / 22%);
@@ -122,17 +160,6 @@
 
 .ingredient-chip:hover {
   background: #b9824b;
-  color: #fffaf3;
-}
-
-.ingredient-picker > button {
-  margin: 0.5rem;
-  background: transparent;
-  color: #9c6534;
-  gap: 1rem;
-}
-
-.ingredient-picker > button:hover {
   color: #fffaf3;
 }
 

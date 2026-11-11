@@ -6,20 +6,33 @@
       #ingredientInput
       id="ingredient-search-input"
       type="text"
-      list="ingredient-options"
       placeholder="Search ingredients..."
       autocomplete="off"
-      [value]="ingredientSearch()"
-      (input)="ingredientSearch.set(ingredientInput.value)"
+      autocapitalize="off"
+      autocorrect="off"
+      spellcheck="false"
+      (input)="ingredientSearch.set(ingredientInput.value); suggestionsOpen.set(true)"
+      (blur)="suggestionsOpen.set(false)"
     />
-    <datalist id="ingredient-options">
-      @for (ingredient of matchingIngredients(); track ingredient.key) {
-        <option [value]="ingredient.name"></option>
-      }
-    </datalist>
-    <button type="button" [disabled]="!selectedIngredient()" (click)="addSelectedIngredient()">
-      Add
-    </button>
+
+    @if (suggestionsOpen() && matchingIngredients().length) {
+      <ul class="suggestions" role="listbox">
+        @for (ingredient of matchingIngredients(); track ingredient.key) {
+          <li>
+            <button
+              type="button"
+              role="option"
+              (mousedown)="$event.preventDefault()"
+              (click)="selectIngredient(ingredient.key)"
+              class="ingredient-search-option"
+            >
+              <span class="ingredient-option-name">{{ ingredient.name }}</span>
+              <span class="ingredient-option-arrow" aria-hidden="true">↗</span>
+            </button>
+          </li>
+        }
+      </ul>
+    }
   </div>
 
   @if (availableIngredientKeys().length) {

@@ -1,8 +1,17 @@
-import { Component, computed, inject, input, output, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  input,
+  output,
+  signal,
+} from '@angular/core';
 import { CocktailService } from '../../services/cocktail';
 
 @Component({
   selector: 'app-ingredient-picker',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './ingredient-picker.css',
   templateUrl: './ingredient-picker.html',
 })
@@ -15,6 +24,22 @@ export class IngredientPicker {
   readonly ingredients = this.cocktailService.ingredients;
   readonly availableIngredientKeys = this.cocktailService.availableIngredientKeys;
   readonly ingredientSearch = signal('');
+
+  readonly suggestionsOpen = signal(false);
+
+  private readonly searchable = computed(() =>
+    this.ingredients().map((i) => ({ ...i, lower: i.name.toLowerCase() })),
+  );
+
+  private readonly nameByKey = computed(
+    () => new Map(this.ingredients().map((i) => [i.key, i.name])),
+  );
+
+  private readonly availableKeySet = computed(() => new Set(this.availableIngredientKeys()));
+
+  readonly containsAllBasicIngredients = computed(() =>
+    this.basicIngredientKeys.every((k) => this.availableKeySet().has(k)),
+  );
 
   readonly basicIngredientKeys: string[] = [
     'water',
@@ -34,9 +59,10 @@ export class IngredientPicker {
 
   readonly matchingIngredients = computed(() => {
     const search = this.ingredientSearch().toLowerCase().trim();
-    return this.ingredients()
-      .filter((ingredient) => ingredient.name.toLowerCase().includes(search))
-      .slice(0, 30);
+    if (!search) return [];
+    return this.searchable()
+      .filter((i) => i.lower.includes(search) && !this.availableKeySet().has(i.key))
+      .slice(0, 8);
   });
 
   readonly selectedIngredient = computed(() => {
@@ -59,7 +85,7 @@ export class IngredientPicker {
   }
 
   ingredientName(key: string): string {
-    return this.ingredients().find((ingredient) => ingredient.key === key)?.name ?? key;
+    return this.nameByKey().get(key) ?? key;
   }
 
   setShowUnavailable(event: Event): void {
@@ -71,12 +97,14 @@ export class IngredientPicker {
       this.cocktailService.addAvailableIngredient(ingredient);
     }
   }
-  containsAllBasicIngredients(): boolean {
-    return this.basicIngredientKeys.every((item) => this.availableIngredientKeys().includes(item));
-  }
   removeAllIngredients(): void {
     for (const key of this.availableIngredientKeys()) {
       this.cocktailService.removeAvailableIngredient(key);
     }
+  }
+  selectIngredient(key: string): void {
+    this.cocktailService.addAvailableIngredient(key);
+    this.ingredientSearch.set('');
+    this.suggestionsOpen.set(false);
   }
 }
