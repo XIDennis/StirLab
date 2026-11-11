@@ -57,10 +57,10 @@
         <label class="toggle-switch">
           <input
             type="checkbox"
-            [checked]="showAllIngredients()"
-            (change)="showAllIngredients.set(!showAllIngredients())"
+            [checked]="showPopularCocktailsOnly()"
+            (change)="showPopularCocktailsOnly.set(!showPopularCocktailsOnly())"
           />
-          <span>Show ingredients on cards</span>
+          <span>Show popular cocktails only</span>
         </label>
       </div>
 
@@ -78,7 +78,6 @@
             [isReady]="match.isReady"
             [isUnavailable]="match.isUnavailable"
             [isPopular]="match.isPopular"
-            [showAllIngredients]="showAllIngredients()"
             [availableIngredientKeys]="availableIngredientKeys()"
           />
         } @empty {

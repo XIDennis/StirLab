@@ -11,7 +11,7 @@
 
     <h2>{{ name }}</h2>
 
-    @if (showAllIngredients && vmIngredients !== undefined) {
+    @if (vmIngredients !== undefined) {
       <ul class="ingredient-list">
         @for (ingredient of vmIngredients; track ingredient.ingredient.key) {
           <li [class.available]="ingredient.isAvailable">
@@ -19,23 +19,25 @@
           </li>
         }
       </ul>
-    } @else if (ingredientsPreview) {
-      <p class="preview">{{ ingredientsPreview }}</p>
+    } @else {
+      <p class="preview">loading ingredients...</p>
     }
 
-    @if (missingIngredients !== undefined) {
-      <p class="ingredient-status" [class.ready-status]="isReady">
-        @if (isReady) {
-          Ready to make
-        } @else if (isUnavailable) {
-          No ingredients available
-        } @else {
-          Missing {{ missingIngredients }}
-          {{ missingIngredients === 1 ? 'ingredient' : 'ingredients' }}
-        }
-      </p>
-    }
+    <div class="card-footer">
+      @if (missingIngredients !== undefined) {
+        <p class="ingredient-status" [class.ready-status]="isReady">
+          @if (isReady) {
+            Ready to make
+          } @else if (isUnavailable) {
+            No ingredients available
+          } @else {
+            Missing {{ missingIngredients }}
+            {{ missingIngredients === 1 ? 'ingredient' : 'ingredients' }}
+          }
+        </p>
+      }
 
-    <a [routerLink]="['/cocktails', id]" class="recipe-link"> View recipe </a>
+      <a [routerLink]="['/cocktails', id]" class="recipe-link"> View recipe </a>
+    </div>
   </div>
 </article>

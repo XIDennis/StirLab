@@ -37,6 +37,9 @@ export class Home {
   showUnavailableCocktails = signal(false);
 
   showAllIngredients = signal<boolean>(localStorage.getItem('showAllIngredients') === 'true');
+  showPopularCocktailsOnly = signal<boolean>(
+    localStorage.getItem('showPopularCocktailsOnly') === 'true',
+  );
 
   categories = computed(() => [
     'All',
@@ -69,14 +72,15 @@ export class Home {
       })
       .filter(({ cocktail, missingIngredients }) => {
         const matchesSearch = cocktail.name.toLowerCase().includes(search);
-
         const matchesCategory = category === 'All' || cocktail.category === category;
+        const matchesPopularFilter =
+          (this.showPopularCocktailsOnly() && cocktail.popular) || !this.showPopularCocktailsOnly();
         const matchesIngredients =
           !hasIngredientFilter ||
           (cocktail.ingredients.length > 0 &&
             (missingIngredients < cocktail.ingredients.length || this.showUnavailableCocktails()));
 
-        return matchesSearch && matchesCategory && matchesIngredients;
+        return matchesSearch && matchesCategory && matchesIngredients && matchesPopularFilter;
       })
       .sort((first, second) => {
         if (!hasIngredientFilter) {
@@ -107,9 +111,8 @@ export class Home {
 
   constructor() {
     void this.cocktailService.loadLibrary();
-    this.showAllIngredients.set(true);
     effect(() => {
-      localStorage.setItem('showAllIngredients', String(this.showAllIngredients()));
+      localStorage.setItem('showPopularCocktailsOnly', String(this.showPopularCocktailsOnly()));
     });
   }
 
