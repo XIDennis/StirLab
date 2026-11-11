@@ -74,7 +74,7 @@
       rgb(20 20 18 / 45%) 48%,
       rgb(20 20 18 / 18%) 100%
     ),
-    url('/assets/images/home_bg.png') center / cover no-repeat;
+    url('../../../assets/images/home_bg.png') center / cover no-repeat;
 }
 
 /* the circle */
