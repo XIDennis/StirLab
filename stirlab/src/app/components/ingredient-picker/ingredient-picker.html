@@ -11,6 +11,7 @@
       autocapitalize="off"
       autocorrect="off"
       spellcheck="false"
+      [value]="ingredientSearch()"
       (input)="ingredientSearch.set(ingredientInput.value); suggestionsOpen.set(true)"
       (blur)="suggestionsOpen.set(false)"
     />
@@ -27,7 +28,6 @@
               class="ingredient-search-option"
             >
               <span class="ingredient-option-name">{{ ingredient.name }}</span>
-              <span class="ingredient-option-arrow" aria-hidden="true">↗</span>
             </button>
           </li>
         }

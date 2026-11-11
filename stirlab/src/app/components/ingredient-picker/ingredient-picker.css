@@ -101,15 +101,8 @@ ul {
   white-space: nowrap;
 }
 
-.ingredient-option-arrow {
-  flex: 0 0 auto;
-  color: #b9824b;
-  font-size: 1rem;
-  transition: transform 150ms ease;
-}
-
-.ingredient-search-option:hover .ingredient-option-arrow,
-.ingredient-search-option:focus-visible .ingredient-option-arrow {
+.ingredient-search-option:hover,
+.ingredient-search-option:focus-visible {
   transform: translate(2px, -2px);
 }
 
