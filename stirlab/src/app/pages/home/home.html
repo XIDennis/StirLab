@@ -19,7 +19,7 @@
     </div>
   </section>
 
-  <section class="library-section" id="library" aria-labelledby="library-title">
+  <section #librarySection class="library-section" id="library" aria-labelledby="library-title">
     <div class="library-shell">
       <div class="section-heading">
         <div>
@@ -89,4 +89,11 @@
       </section>
     </div>
   </section>
+
+  @if (showJumpToTop()) {
+    <button class="jump-to-top" type="button" aria-label="Jump to top" (click)="scrollToTop()">
+      <span aria-hidden="true">↑</span>
+      <span>Top</span>
+    </button>
+  }
 </main>

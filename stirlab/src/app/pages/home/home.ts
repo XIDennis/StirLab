@@ -1,4 +1,13 @@
-import { Component, signal, computed, inject, effect } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  signal,
+  computed,
+  inject,
+  effect,
+  ViewChild,
+} from '@angular/core';
 import { CocktailCard } from '../../components/cocktail-card/cocktail-card';
 import { Cocktail } from '../../models/cocktail';
 import { CocktailService } from '../../services/cocktail';
@@ -22,6 +31,9 @@ interface CocktailMatch {
   styleUrl: './home.css',
 })
 export class Home {
+  @ViewChild('librarySection', { static: true })
+  librarySection!: ElementRef<HTMLElement>;
+
   title = 'StirLab';
   subtitle = 'Discover your next favourite cocktail.';
 
@@ -35,6 +47,7 @@ export class Home {
   availableIngredientKeys = this.cocktailService.availableIngredientKeys;
 
   showUnavailableCocktails = signal(false);
+  showJumpToTop = signal(false);
 
   showAllIngredients = signal<boolean>(localStorage.getItem('showAllIngredients') === 'true');
   showPopularCocktailsOnly = signal<boolean>(
@@ -118,5 +131,18 @@ export class Home {
 
   setCategory(category: string): void {
     this.selectedCategory.set(category);
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    const libraryTop = this.librarySection.nativeElement.offsetTop;
+    this.showJumpToTop.set(window.scrollY >= libraryTop + 320);
+  }
+
+  scrollToTop(): void {
+    this.librarySection?.nativeElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
   }
 }
