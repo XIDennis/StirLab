@@ -1,4 +1,8 @@
-<section class="cocktail-search" aria-labelledby="search-label">
+<section
+  class="cocktail-search"
+  aria-labelledby="search-label"
+  (document:click)="blurSearchOnOutsideClick($event, searchInput)"
+>
   <label id="search-label" for="cocktail-search-input">Search cocktails</label>
   <input
     #searchInput

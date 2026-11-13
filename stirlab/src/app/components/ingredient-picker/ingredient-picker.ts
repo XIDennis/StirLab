@@ -102,6 +102,13 @@ export class IngredientPicker {
       this.cocktailService.removeAvailableIngredient(key);
     }
   }
+
+  blurSearchOnOutsideClick(event: Event, input: HTMLInputElement): void {
+    if (event.target !== input) {
+      input.blur();
+    }
+  }
+
   selectIngredient(key: string): void {
     this.cocktailService.addAvailableIngredient(key);
     this.ingredientSearch.set('');

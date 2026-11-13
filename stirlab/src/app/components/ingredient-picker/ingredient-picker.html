@@ -1,4 +1,8 @@
-<section class="ingredient-picker" aria-labelledby="ingredient-label">
+<section
+  class="ingredient-picker"
+  aria-labelledby="ingredient-label"
+  (document:click)="blurSearchOnOutsideClick($event, ingredientInput)"
+>
   <h2 id="ingredient-label">What ingredients do you have?</h2>
   <p>Select ingredients to see cocktails you can make.</p>
   <div class="ingredient-entry">

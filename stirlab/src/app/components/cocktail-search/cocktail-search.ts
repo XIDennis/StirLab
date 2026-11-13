@@ -8,4 +8,10 @@ import { Component, output } from '@angular/core';
 })
 export class CocktailSearch {
   searchChange = output<string>();
+
+  blurSearchOnOutsideClick(event: Event, input: HTMLInputElement): void {
+    if (event.target !== input) {
+      input.blur();
+    }
+  }
 }
