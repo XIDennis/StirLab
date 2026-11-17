@@ -2,6 +2,7 @@
 // WARNING
 // Running new build currently deletes all manually added entries that are
 // not in the DB data is pulled from
+// THIS SCRIPT IS ONLY USED TO PULL DATA FROM THECOKCTAILDB.COM
 
 import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
