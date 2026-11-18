@@ -8,7 +8,7 @@ body {
   min-height: 100%;
   background-color: #0a0705;
   font-family: Arial, sans-serif;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 app-root {

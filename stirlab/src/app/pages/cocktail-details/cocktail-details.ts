@@ -1,4 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CocktailService } from '../../services/cocktail';
 import { Cocktail } from '../../models/cocktail';
@@ -12,6 +13,7 @@ import { Cocktail } from '../../models/cocktail';
 export class CocktailDetails {
   private route = inject(ActivatedRoute);
   private cocktailService = inject(CocktailService);
+  private location = inject(Location);
 
   cocktail = signal<Cocktail | undefined>(undefined);
   isLoading = signal(true);
@@ -29,6 +31,10 @@ export class CocktailDetails {
 
     this.cocktail.set(await this.cocktailService.getCocktailById(id));
     this.isLoading.set(false);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   searchTag(): string | undefined {

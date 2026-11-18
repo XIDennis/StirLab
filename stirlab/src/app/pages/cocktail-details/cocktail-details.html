@@ -1,6 +1,6 @@
 <main class="details-page">
   <div class="details-container">
-    <a routerLink="/" class="back-link"> Back to cocktails </a>
+    <a (click)="goBack()" class="back-link"> Back to cocktails </a>
 
     @if (isLoading()) {
       <div class="not-found">
