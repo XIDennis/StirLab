@@ -61,6 +61,7 @@
 }
 
 .hero {
+  --hero-bg: url('../../../assets/images/home_bg.png');
   position: relative;
   display: flex;
   min-height: min(100svh, 52rem);
@@ -75,7 +76,7 @@
       rgb(20 20 18 / 45%) 48%,
       rgb(20 20 18 / 18%) 100%
     ),
-    url('../../../assets/images/home_bg.png') center / cover no-repeat;
+    var(--hero-bg) center / cover no-repeat;
 }
 
 /* the circle */
@@ -357,6 +358,7 @@
   }
 
   .hero {
+    --hero-bg: url('../../../assets/images/bg_portrait.png');
     min-height: 42rem;
     padding-top: 8rem;
   }
