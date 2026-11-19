@@ -75,6 +75,7 @@
   margin: 0 0 2rem;
   color: #746d63;
   line-height: 1.7;
+  white-space: pre-line;
 }
 
 .details-content section + section {

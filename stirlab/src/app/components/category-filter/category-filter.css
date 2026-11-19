@@ -18,6 +18,7 @@
   overflow-y: auto;
   align-content: flex-start;
   padding-right: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .category-list::-webkit-scrollbar {

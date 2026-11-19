@@ -130,7 +130,11 @@ export class Home {
   }
 
   setCategory(category: string): void {
-    this.selectedCategory.set(category);
+    if (this.selectedCategory() === category) {
+      this.selectedCategory.set('All');
+    } else {
+      this.selectedCategory.set(category);
+    }
   }
 
   @HostListener('window:scroll')
