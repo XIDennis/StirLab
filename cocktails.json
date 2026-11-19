@@ -3367,7 +3367,7 @@
         "Garnish with lime wedge."
       ],
       "popular": true,
-      "description": "A Cuba Libre is a classic highball cocktail made with white rum, cola, and fresh lime juice, served over ice with a lime wedge. The squeeze of fresh lime is the essential ingredient that elevates it beyond a standard rum and cola, cutting through the sweetness with bright citrus acidity."
+      "description": "A Cuba Libre is a classic highball cocktail made with white rum, cola, and fresh lime juice, served over ice with a lime wedge.\nThe squeeze of fresh lime is the essential ingredient that elevates it beyond a standard rum and cola, cutting through the sweetness with bright citrus acidity."
     },
     {
       "id": "11006",
@@ -6888,55 +6888,6 @@
         "Stir gently.",
         "Garnish with lemon zest.",
         "If desired, add dashes of Angostura Bitter."
-      ],
-      "popular": false,
-      "description": ""
-    },
-    {
-      "id": "12738",
-      "name": "Hot Chocolate to Die for",
-      "category": "Cocoa",
-      "image": "https://www.thecocktaildb.com/images/media/drink/0lrmjp1487603166.jpg",
-      "ingredients": [
-        {
-          "ingredient": {
-            "key": "chocolate",
-            "name": "Chocolate"
-          },
-          "measure": "12 oz fine"
-        },
-        {
-          "ingredient": {
-            "key": "butter",
-            "name": "Butter"
-          },
-          "measure": "1 tsp"
-        },
-        {
-          "ingredient": {
-            "key": "vanilla-extract",
-            "name": "Vanilla extract"
-          },
-          "measure": "1/2 tsp"
-        },
-        {
-          "ingredient": {
-            "key": "half-and-half",
-            "name": "Half-and-half"
-          },
-          "measure": "1 cup"
-        },
-        {
-          "ingredient": {
-            "key": "marshmallows",
-            "name": "Marshmallows"
-          },
-          "measure": "mini"
-        }
-      ],
-      "instructions": [
-        "Melt the chocolate, butter and vanilla in a double boiler.",
-        "When just smooth stir in the cream."
       ],
       "popular": false,
       "description": ""
