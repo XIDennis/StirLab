@@ -7,7 +7,12 @@ import {
   inject,
   effect,
   ViewChild,
+  afterNextRender,
+  Injector,
 } from '@angular/core';
+import { Router, NavigationStart } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { filter } from 'rxjs/operators';
 import { CocktailCard } from '../../components/cocktail-card/cocktail-card';
 import { Cocktail } from '../../models/cocktail';
 import { CocktailService } from '../../services/cocktail';
@@ -38,6 +43,8 @@ export class Home {
   subtitle = 'Discover your next favourite cocktail.';
 
   readonly cocktailService = inject(CocktailService);
+  private router = inject(Router);
+  private injector = inject(Injector);
 
   cocktails = this.cocktailService.cocktails;
   searchTerm = signal('');
@@ -124,6 +131,32 @@ export class Home {
 
   constructor() {
     void this.cocktailService.loadLibrary();
+
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationStart),
+        takeUntilDestroyed(),
+      )
+      .subscribe(() => {
+        sessionStorage.setItem('home_scroll_y', String(window.scrollY));
+      });
+
+    effect(() => {
+      const cocktails = this.cocktails();
+      if (cocktails.length > 0) {
+        afterNextRender(
+          () => {
+            const saved = sessionStorage.getItem('home_scroll_y');
+            if (saved !== null) {
+              sessionStorage.removeItem('home_scroll_y');
+              window.scrollTo({ top: parseInt(saved, 10), behavior: 'instant' });
+            }
+          },
+          { injector: this.injector },
+        );
+      }
+    });
+
     effect(() => {
       localStorage.setItem('showPopularCocktailsOnly', String(this.showPopularCocktailsOnly()));
     });
