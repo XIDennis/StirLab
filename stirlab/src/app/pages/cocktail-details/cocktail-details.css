@@ -185,6 +185,11 @@
   transform: scale(0.98);
 }
 
+.unavailable-ingredient {
+  font-style: italic;
+  font-size: 80%;
+}
+
 @media (max-width: 48rem) {
   .details-grid {
     grid-template-columns: 1fr;

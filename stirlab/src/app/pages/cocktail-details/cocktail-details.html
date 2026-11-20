@@ -29,6 +29,11 @@
                 <li>
                   <span class="ingredient-dot" aria-hidden="true"></span>
                   {{ ingredient.measure }} {{ ingredient.ingredient.name }}
+                  @if (keysSet.size > 0) {
+                    <span class="unavailable-ingredient">
+                      {{ keysSet.has(ingredient.ingredient.key) ? '' : '(missing ingredient)' }}
+                    </span>
+                  }
                 </li>
               }
             </ul>

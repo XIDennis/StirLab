@@ -18,6 +18,9 @@ export class CocktailDetails {
   cocktail = signal<Cocktail | undefined>(undefined);
   isLoading = signal(true);
 
+  availableIngredientKeys = this.cocktailService.availableIngredientKeys;
+  keysSet = new Set(this.availableIngredientKeys());
+
   constructor() {
     void this.loadCocktail();
   }
