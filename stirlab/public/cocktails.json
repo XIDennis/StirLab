@@ -1244,7 +1244,7 @@
         "Pour the Campari and vermouth over ice into glass, add a splash of soda water and garnish with half orange slice."
       ],
       "popular": true,
-      "description": ""
+      "description": "A refreshing, bittersweet Italian aperitif highball built over ice with equal parts Campari and sweet vermouth, topped with sparkling club soda and garnished with an orange slice. Originally created in Milan in the 1860s, it serves as the lighter, lower-ABV predecessor to the Negroni."
     },
     {
       "id": "11046",
@@ -1460,7 +1460,7 @@
         "Garnish with a cherry."
       ],
       "popular": true,
-      "description": ""
+      "description": "A classic pre-Prohibition floral and citrusy gin cocktail shaken with maraschino liqueur, crème de violette, and fresh lemon juice. Known for its pale lavender-sky hue and delicate balance of tart, sweet, and botanical notes, it is traditionally served straight up with a brandied cherry."
     },
     {
       "id": "15853",
@@ -1492,7 +1492,7 @@
       ],
       "instructions": ["Layer ingredients into a shot glass.", "Serve with a stirrer."],
       "popular": true,
-      "description": ""
+      "description": "A visually striking, rich layered shooter made by carefully floating coffee liqueur (Kahlúa), Irish cream (Baileys), and orange liqueur (Grand Marnier) in distinct tiers. Smooth, sweet, and decadent, it delivers a dessert-like combination of roasted coffee, cream, and bright citrus."
     },
     {
       "id": "13332",
@@ -1708,7 +1708,7 @@
       ],
       "instructions": ["Pour peach purée into chilled flute, add sparkling wine.", "Stir gently."],
       "popular": true,
-      "description": ""
+      "description": "A light, fruity Italian sparkling cocktail originating from Harry's Bar in Venice, blending chilled Prosecco with fresh white peach purée. Effervescent and delicately sweet, it is a staple celebratory drink for brunches and warm afternoons."
     },
     {
       "id": "16986",
@@ -2219,7 +2219,7 @@
         "Garnish with two blackberries and lemon slice."
       ],
       "popular": true,
-      "description": ""
+      "description": "A modern British gin sour created in London in the 1980s, combining gin, fresh lemon juice, and simple syrup over crushed ice, finished with a vibrant drizzle of blackberry liqueur (crème de mûre). The liqueur slowly bleeds through the ice, creating a striking marbled look and a tart-yet-berry-rich flavor."
     },
     {
       "id": "17825",
@@ -2533,7 +2533,7 @@
         "Fill the glass with ice and add the Cachaça."
       ],
       "popular": true,
-      "description": ""
+      "description": "Brazil's national cocktail, crafted by muddling fresh lime wedges and cane sugar together before shaking or stirring with cachaça, a grassy, unaged sugarcane spirit. Bright, punchy, and refreshingly rustic, it highlights the earthy, funky character of Brazilian cachaça."
     },
     {
       "id": "13206",
@@ -3215,7 +3215,7 @@
       ],
       "instructions": ["Shake, strain, straight up, cocktail glass rinsed with absinthe."],
       "popular": true,
-      "description": ""
+      "description": "A crisp, herbal gin-based 'hair of the dog' classic—most famously the #2 recipe—shaken with equal parts gin, Cointreau, Lillet Blanc, and fresh lemon juice, served in an absinthe-rinsed coupe. Sharp, aromatic, and revitalizing, it balances bright citrus with subtle anise and botanical bitterness."
     },
     {
       "id": "17196",
@@ -3258,7 +3258,7 @@
         "Garnish with lime wheel."
       ],
       "popular": true,
-      "description": ""
+      "description": "A vibrant pink vodka cocktail made famous in the 1990s, shaken with orange liqueur (Cointreau), cranberry juice, and fresh lime juice, and served up in a chilled martini glass. Crisp, tart, and subtly sweet, it is typically finished with an expressed orange peel."
     },
     {
       "id": "14608",
@@ -3403,7 +3403,7 @@
         "Strain in chilled cocktail glass."
       ],
       "popular": true,
-      "description": ""
+      "description": "A clean, perfectly balanced Cuban sour combining white rum, fresh-squeezed lime juice, and simple syrup, shaken hard and strained into a chilled coupe. Despite its modern association with frozen blended drinks, the classic Daiquiri is a benchmark test of a bartender's precision and balance."
     },
     {
       "id": "13194",
@@ -3481,7 +3481,7 @@
         "Garnish with lime wedge."
       ],
       "popular": true,
-      "description": ""
+      "description": "Bermuda's national drink, consisting of spicy ginger beer and fresh lime juice served over ice, topped with a dramatic float of dark Goslings Black Seal rum. As the rich, molasses-heavy rum slowly mixes into the fiery ginger beer, it creates a bold, warming, and refreshing highball."
     },
     {
       "id": "17177",
@@ -3864,7 +3864,7 @@
         "Squeeze oil from lemon peel onto the drink, or garnish with olive."
       ],
       "popular": true,
-      "description": ""
+      "description": "An iconic, icy-cold cocktail stirred with gin and a minimal splash of dry vermouth, strained into a chilled cocktail glass and garnished with a green olive or a lemon twist. Crisp, botanical, and unapologetically spirit-forward, it is the gold standard of classic cocktail sophistication."
     },
     {
       "id": "11324",
@@ -4403,7 +4403,7 @@
         "Pour ingredients into shaker filled with ice, shake vigorously, and strain into chilled martini glass."
       ],
       "popular": true,
-      "description": ""
+      "description": "A rich, energizing modern classic created by Dick Bradsell in London, hard-shaken with vodka, coffee liqueur, simple syrup, and a shot of freshly brewed espresso. The vigorous shake creates a signature velvety crema foam on top, garnished traditionally with three coffee beans."
     },
     {
       "id": "178309",
@@ -4845,7 +4845,7 @@
         "Stir gently."
       ],
       "popular": true,
-      "description": ""
+      "description": "A celebratory, effervescent cocktail combining gin, fresh lemon juice, and simple syrup, strained into a champagne flute and topped with chilled Champagne. Named after a fast-firing World War I French field gun, it pairs bright botanical citrus with crisp, bubbly elegance."
     },
     {
       "id": "17198",
@@ -4873,7 +4873,7 @@
         "Stir gently."
       ],
       "popular": true,
-      "description": ""
+      "description": "A rich, spirit-forward two-ingredient sipper stirred over ice with equal parts Cognac and amaretto liqueur. Smooth, warming, and aromatic, the dried-fruit richness of the French brandy pairs seamlessly with the sweet, nutty almond notes of the Italian liqueur."
     },
     {
       "id": "17213",
@@ -4909,7 +4909,7 @@
         "Squeeze oil from lemon peel onto the drink."
       ],
       "popular": true,
-      "description": ""
+      "description": "A smooth, fruity modern classic from the late 1980s, shaken with vodka, black raspberry liqueur (Chambord), and fresh pineapple juice. Known for its lush berry-tropical sweetness and thick, frothy pineapple foam, it is served straight up in a chilled martini glass."
     },
     {
       "id": "17248",
@@ -5432,7 +5432,7 @@
         "Garnish with a lime wheel."
       ],
       "popular": true,
-      "description": ""
+      "description": "A sharp, refreshing cocktail made simply with gin (or occasionally vodka) and sweetened lime juice—traditionally Rose's lime cordial, though modern versions often use fresh lime and simple syrup. Originally devised to help British Royal Navy sailors stave off scurvy, it is brisk, zesty, and clean."
     },
     {
       "id": "178342",
@@ -7201,7 +7201,7 @@
         "Pour into glass and top with cream; serve hot."
       ],
       "popular": true,
-      "description": ""
+      "description": "A warming, comforting cocktail made with hot brewed coffee, Irish whiskey, and brown sugar, topped with a thick layer of lightly whipped heavy cream floated over the back of a spoon. Designed to be sipped through the cool, velvety cream, it offers a rich blend of roasted, sweet, and malty flavors."
     },
     {
       "id": "12820",
@@ -7930,7 +7930,7 @@
         "Strain into glass, garnish and serve."
       ],
       "popular": true,
-      "description": ""
+      "description": "A tart, punchy equal-parts mix of vodka, triple sec, and fresh lime juice, shaken with ice and served either as a chilled shot or strained over rocks. Crisp and intensely citrus-forward, it shares the exact template of a Margarita or Sidecar but uses vodka as a clean neutral base."
     },
     {
       "id": "12764",
@@ -8481,7 +8481,7 @@
       ],
       "instructions": ["Shake and strain into a chilled cocktail glass rimmed with sugar."],
       "popular": true,
-      "description": ""
+      "description": "A bright, sweet-and-sour vodka cocktail shaken with triple sec, fresh lemon juice, and simple syrup, strained into a chilled martini glass with a sugar-coated rim. Inspired by the classic lemon drop candy, it delivers a burst of zesty citrus balanced by a crisp, sugary finish."
     },
     {
       "id": "178360",
@@ -8823,7 +8823,7 @@
         "Add dash of Coca-Cola for the coloring and garnish with lemon or lime twist."
       ],
       "popular": true,
-      "description": ""
+      "description": "A notoriously potent highball mixing equal parts vodka, gin, white rum, silver tequila, and triple sec with lemon juice, simple syrup, and a splash of cola for color. Despite containing no actual tea, the combination of citrus, sweetness, and cola remarkably mimics iced tea while masking its high alcohol content."
     },
     {
       "id": "11002",
@@ -8880,7 +8880,7 @@
         "Decorate with a slice of lemon and serve."
       ],
       "popular": true,
-      "description": ""
+      "description": "An alternate name for the Long Island Iced Tea—a high-proof party highball blending five white spirits (vodka, gin, rum, tequila, and triple sec) with sweet-and-sour citrus and a splash of cola. Smooth, deceptively easy to drink, and famously strong, it is served over plenty of ice with a lemon wedge."
     },
     {
       "id": "13196",
@@ -9043,7 +9043,7 @@
         "Garnish and serve with straw."
       ],
       "popular": true,
-      "description": ""
+      "description": "A quintessential tiki cocktail created by Trader Vic in 1944, combining aged Jamaican and Martinique rums with orange curaçao, fresh lime juice, and almond-flavored orgeat syrup. Complex, nutty, and vibrantly citrusy, it showcases rich rum character rather than heavy fruit juices."
     },
     {
       "id": "178358",
@@ -9158,7 +9158,7 @@
         "Stirred over ice, strained into a chilled glass, garnished, and served up."
       ],
       "popular": true,
-      "description": ""
+      "description": "A bold, timeless stirred cocktail crafted with rye or bourbon whiskey, sweet Italian vermouth, and dashes of aromatic Angostura bitters, served up with a dark brandied cherry. Rich, spicy, and subtly bittersweet, it is one of the foundational classics of American mixology."
     },
     {
       "id": "11007",
@@ -9203,7 +9203,7 @@
         "Shake the other ingredients with ice, then carefully pour into the glass."
       ],
       "popular": true,
-      "description": ""
+      "description": "A zesty Mexican classic shaking blanco or reposado tequila, orange liqueur (Cointreau or triple sec), and fresh lime juice, typically served in a glass with a salted rim. The interplay of earthy agave, bright citrus, and savory salt makes it one of the world's most popular cocktails."
     },
     {
       "id": "17256",
@@ -9282,7 +9282,7 @@
         "Squeeze oil from lemon peel onto the drink, or garnish with olive."
       ],
       "popular": true,
-      "description": ""
+      "description": "An iconic, timeless cocktail stirred (or shaken) to freezing temperatures with gin or vodka and dry vermouth, served straight up in a stemmed glass. Clean, crisp, and endlessly customizable—from wet to bone-dry, dirty with olive brine, or garnished with a twist—it defines classic bar culture."
     },
     {
       "id": "17188",
@@ -9521,7 +9521,7 @@
         "Serve cold."
       ],
       "popular": true,
-      "description": ""
+      "description": "A classic brunch cocktail mixing equal parts chilled Champagne (or dry sparkling wine) and fresh-squeezed orange juice in a tall flute. Light, bubbly, and effortlessly refreshing, it balances the crisp acidity of sparkling wine with bright citrus sweetness."
     },
     {
       "id": "17206",
@@ -9564,7 +9564,7 @@
         "Garnish with a mint sprig."
       ],
       "popular": true,
-      "description": ""
+      "description": "A refreshing Southern classic and the official drink of the Kentucky Derby, made by gently muddling fresh spearmint leaves with sugar or simple syrup, bourbon, and mountains of finely crushed ice. Served traditionally in a frosted silver or pewter cup, it is intensely aromatic and cooling."
     },
     {
       "id": "14209",
@@ -9658,7 +9658,7 @@
         "Garnish and serve with straw."
       ],
       "popular": true,
-      "description": ""
+      "description": "A crisp Cuban highball made by gently muddling fresh mint leaves, fresh lime juice, and cane sugar with white rum, served over ice and topped with sparkling club soda. Bright, herbaceous, and effortlessly thirst-quenching, it is a quintessential warm-weather refresher."
     },
     {
       "id": "15841",
@@ -9854,7 +9854,7 @@
         "Garnish."
       ],
       "popular": true,
-      "description": ""
+      "description": "A zesty, refreshing cocktail combining vodka, fiery ginger beer, and fresh lime juice over ice, traditionally served in an iconic chilled copper mug. Invented in the 1940s to popularize vodka in America, the copper mug keeps the drink frosty while amplifying the ginger's spicy kick."
     },
     {
       "id": "16041",
@@ -10086,7 +10086,7 @@
       ],
       "instructions": ["Stir into glass over ice, garnish and serve."],
       "popular": true,
-      "description": ""
+      "description": "A bold, bittersweet Italian aperitif stirred with equal parts gin, Campari, and sweet red vermouth, served over a large ice cube with an expressed orange peel. Herbal, complex, and deeply ruby-red, it balances botanical juniper, bitter orange peel, and rich spiced wine."
     },
     {
       "id": "13204",
@@ -10354,7 +10354,7 @@
         "Garnish with orange twist, and a cocktail cherry."
       ],
       "popular": true,
-      "description": ""
+      "description": "The foundational whiskey cocktail, crafted by dissolving sugar with dashes of Angostura bitters and a splash of water before stirring with bourbon or rye whiskey over ice and garnishing with an orange twist. Spirit-forward, smooth, and aromatic, it highlights the oak and spice of the base whiskey."
     },
     {
       "id": "17827",
@@ -10781,7 +10781,7 @@
       ],
       "instructions": ["Stir together and serve over ice."],
       "popular": true,
-      "description": ""
+      "description": "A crisp, bittersweet Mexican highball combining blanco or reposado tequila and fresh lime juice over ice, topped with sparkling grapefruit soda (such as Jarritos or Squirt) in a salt-rimmed glass. Lighter and more effervescent than a Margarita, it is Mexico's favorite everyday tequila refresher."
     },
     {
       "id": "17190",
@@ -10945,7 +10945,7 @@
         "Garnish with candied ginger."
       ],
       "popular": true,
-      "description": ""
+      "description": "A modern classic created by Sam Ross in New York, shaking blended Scotch whisky, fresh lemon juice, and honey-ginger syrup, then finishing with an aromatic float of heavily peated Islay single malt. Warming, spicy, tart, and smoky, it drinks like an elevated, sophisticated hot toddy on the rocks."
     },
     {
       "id": "17207",
@@ -10980,7 +10980,7 @@
         "Pour into chilled glass, garnish and serve."
       ],
       "popular": true,
-      "description": ""
+      "description": "A creamy, tropical blended cocktail originating from Puerto Rico, combining white rum, rich coconut cream (Coco López), and sweet pineapple juice with crushed ice. Lush, velvety, and unabashedly vacation-ready, it is garnished with a pineapple wedge and a maraschino cherry."
     },
     {
       "id": "178327",
@@ -11284,7 +11284,7 @@
         "Vigorously shake and strain contents in a cocktail shaker with ice cubes, then pour into glass and garnish with bitters."
       ],
       "popular": true,
-      "description": ""
+      "description": "A frothy South American classic shaking Peruvian or Chilean pisco (an unaged grape brandy) with fresh lime juice, simple syrup, and egg white, finished with drops of Angostura bitters on the foam. Silky, tangy, and aromatic, the bitters cut through the rich meringue-like cap with warm spice."
     },
     {
       "id": "17191",
@@ -11329,7 +11329,7 @@
         "Garnish with cocktail cherry and pineapple."
       ],
       "popular": true,
-      "description": ""
+      "description": "A classic Jamaican tiki highball featuring bold dark Jamaican rum, fresh lime juice, cane sugar, and splashes of tropical fruit juices, bitters, or grenadine over crushed ice. Rich, funky, and deeply spiced, it embodies the classic Caribbean rum punch formula of 'one of sour, two of sweet, three of strong, four of weak.'"
     },
     {
       "id": "178368",
@@ -11386,7 +11386,7 @@
         "Strain into a highball glass and decorate with a pineapple wedge or fruit of your choice."
       ],
       "popular": true,
-      "description": ""
+      "description": "A classic Jamaican tiki highball featuring bold dark Jamaican rum, fresh lime juice, cane sugar, and splashes of tropical fruit juices, bitters, or grenadine over crushed ice. Rich, funky, and deeply spiced, it embodies the classic Caribbean rum punch formula of 'one of sour, two of sweet, three of strong, four of weak.'"
     },
     {
       "id": "13072",
@@ -11504,7 +11504,7 @@
         "Pour prosecco into a chilled shot glass and serve alongside the martini."
       ],
       "popular": true,
-      "description": ""
+      "description": "A vibrant, indulgent modern classic created by Douglas Ankrah in London, shaking vanilla vodka, passion fruit liqueur (Passoã), fresh passion fruit purée, and lime juice. Served in a chilled coupe with half a passion fruit floating on top and a side shot of chilled Prosecco to sip alongside."
     },
     {
       "id": "11961",
@@ -13005,7 +13005,7 @@
         "Garnish with the lemon twist."
       ],
       "popular": true,
-      "description": ""
+      "description": "A warming, herbal two-ingredient cocktail stirred over ice with Scotch whisky and Drambuie, a golden liqueur made from aged Scotch, heather honey, herbs, and spices. Smooth, smoky, and richly honeyed, it serves as an effortless yet complex after-dinner sipper."
     },
     {
       "id": "12107",
@@ -13140,7 +13140,7 @@
         "Serve in wine glasses."
       ],
       "popular": true,
-      "description": ""
+      "description": "A festive, fruity Spanish wine punch traditionally combining bold red wine (such as Rioja) with brandy, orange liqueur, chopped fresh citrus and apples, and a touch of sweetener. Chilled and allowed to macerate so the fruit infuses the wine, it is often topped with soda water for a crisp finish."
     },
     {
       "id": "12127",
@@ -13198,7 +13198,7 @@
         "Add the lemon peel for garnish."
       ],
       "popular": true,
-      "description": ""
+      "description": "New Orleans' official cocktail and one of America's oldest, stirring rye whiskey (or Cognac) with a sugar cube and Peychaud's bitters, then straining neat into an old-fashioned glass rinsed with absinthe. Aromatic, spicy, and subtly anise-scented, it is finished with an expressed lemon peel discarded or perched on the rim."
     },
     {
       "id": "12130",
@@ -13306,7 +13306,7 @@
       ],
       "instructions": ["Mix in a highball glass with ice.", "Garnish and serve."],
       "popular": true,
-      "description": ""
+      "description": "A simple, effortless two-ingredient highball made by pouring vodka and fresh-squeezed orange juice over ice in a tall glass. Crisp, sunny, and easy-drinking, its quality relies entirely on using fresh, vibrant orange juice."
     },
     {
       "id": "13377",
@@ -13341,7 +13341,7 @@
         "Garnish with lime wedge."
       ],
       "popular": true,
-      "description": ""
+      "description": "A tart, crisp summer highball built over ice with vodka, cranberry juice, and tangy grapefruit juice, garnished with a lime wheel. Refreshing and lightly bitter-sweet, it delivers a bright, Ruby-red citrus punch that is lighter than a Cape Codder."
     },
     {
       "id": "16273",
@@ -13542,7 +13542,7 @@
         "Shake well and strain into cocktail glass."
       ],
       "popular": true,
-      "description": ""
+      "description": "A classic, bright sour cocktail shaken with Cognac, orange liqueur (Cointreau), and fresh lemon juice, strained into a chilled coupe often lined with a half-rim of sugar. Dating back to post-World War I Paris and London, it balances rich grape brandy with crisp, bracing citrus."
     },
     {
       "id": "17141",
@@ -14237,7 +14237,7 @@
         "Garnish and serve."
       ],
       "popular": true,
-      "description": ""
+      "description": "A visually dramatic layered highball made by pouring tequila and orange juice over ice, then slowly drizzling sweet red grenadine down the inside of the glass so it sinks and bleeds upward. Sweet, fruity, and evocative of a summer dawn, it is garnished with an orange slice and cherry."
     },
     {
       "id": "14602",
@@ -14823,7 +14823,7 @@
         "Stir and garnish with the cherry and the orange slice."
       ],
       "popular": true,
-      "description": ""
+      "description": "A refreshing, sparkling gin sour made by shaking or building gin, fresh lemon juice, and simple syrup over ice in a tall Collins glass, topped with crisp club soda. Light, bubbly, and essentially a grown-up sparkling lemonade, it is garnished with a lemon wheel and cherry."
     },
     {
       "id": "12726",
@@ -15671,7 +15671,7 @@
         "If served 'On the rocks', strain ingredients into old-fashioned glass filled with ice."
       ],
       "popular": true,
-      "description": ""
+      "description": "A smooth, timeless classic shaking bourbon whiskey, fresh lemon juice, simple syrup, and an optional egg white for a lush, velvety foam. Perfectly balancing rich caramel-oak notes with bright tartness, it is traditionally garnished with a maraschino cherry and an orange half-wheel."
     },
     {
       "id": "12518",
