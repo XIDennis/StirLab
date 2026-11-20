@@ -149,7 +149,9 @@ export class Home {
             const saved = sessionStorage.getItem('home_scroll_y');
             if (saved !== null) {
               sessionStorage.removeItem('home_scroll_y');
-              window.scrollTo({ top: parseInt(saved, 10), behavior: 'instant' });
+              requestAnimationFrame(() => {
+                window.scrollTo({ top: parseInt(saved, 10), behavior: 'instant' });
+              });
             }
           },
           { injector: this.injector },
